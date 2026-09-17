@@ -1,0 +1,1242 @@
+/* ============================================================
+   INDEX.CSS — Home page only
+   ============================================================ */
+
+/* ============================================================
+   01 — HERO
+   ============================================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding-top: var(--header-h);
+    padding-bottom: clamp(60px, 8vh, 110px);
+    overflow: hidden;
+    background: var(--deep);
+}
+
+.hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+}
+
+.hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(9, 35, 40, 0.72) 0%, rgba(9, 35, 40, 0.28) 38%, rgba(9, 35, 40, 0.88) 100%),
+        linear-gradient(90deg, rgba(9, 35, 40, 0.66) 0%, rgba(9, 35, 40, 0.06) 62%);
+}
+
+.hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 60px;
+    align-items: end;
+    color: var(--cream);
+}
+
+.hero__copy .eyebrow {
+    color: var(--sage);
+}
+
+.hero__title {
+    color: var(--cream);
+    margin-bottom: 28px;
+    text-shadow: 0 2px 40px rgba(9, 35, 40, 0.4);
+}
+
+.hero__title em {
+    color: var(--sage);
+}
+
+.hero__lead {
+    font-size: clamp(1rem, 1.25vw, 1.14rem);
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 52ch;
+    margin-bottom: 40px;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding-left: 36px;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero__stat span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1;
+    color: var(--sage);
+    margin-bottom: 8px;
+}
+
+.hero__stat p {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.66);
+    max-width: 30ch;
+}
+
+/* ============================================================
+   02 — THE PLACES WE PROTECT
+   ============================================================ */
+.protect__head {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: clamp(46px, 5.4vw, 74px);
+}
+
+.protect__body p+p {
+    margin-top: 18px;
+}
+
+.protect__body .link-arrow {
+    margin-top: 28px;
+}
+
+.protect__grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 0.95fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.protect__fig {
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: var(--deep);
+}
+
+.protect__fig img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s var(--ease-out);
+}
+
+.protect__fig:hover img {
+    transform: scale(1.04);
+}
+
+.protect__note {
+    background: var(--deep);
+    color: rgba(255, 255, 255, 0.72);
+    padding: 34px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    aspect-ratio: 4 / 5;
+}
+
+.protect__note-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+}
+
+.protect__note p:last-child {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: none;
+}
+
+/* ============================================================
+   03 — DESTINATIONS BEYOND THE MAP
+   ============================================================ */
+.dest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 36px;
+}
+
+.dest {
+    display: block;
+}
+
+.dest__media {
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    margin-bottom: 22px;
+    background: var(--deep);
+}
+
+.dest__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s var(--ease-out), filter .8s var(--ease-out);
+    filter: saturate(0.94);
+}
+
+.dest:hover .dest__media img {
+    transform: scale(1.045);
+    filter: saturate(1.04);
+}
+
+.dest__meta {
+    display: flex;
+    gap: 20px;
+}
+
+.dest__num {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--green);
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.dest__meta h3 {
+    margin-bottom: 8px;
+    transition: color .4s var(--ease-out);
+}
+
+.dest:hover .dest__meta h3 {
+    color: var(--teal);
+}
+
+.dest__meta p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    max-width: 42ch;
+}
+
+/* ============================================================
+   04 — WILD BY NATURE
+   ============================================================ */
+.wild {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    padding-block: clamp(90px, 12vh, 160px);
+    overflow: hidden;
+    background: var(--deep);
+}
+
+.wild__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.wild__media img {
+    width: 100%;
+    height: 118%;
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+.wild__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(9, 35, 40, 0.9) 0%, rgba(9, 35, 40, 0.55) 48%, rgba(9, 35, 40, 0.2) 100%),
+        linear-gradient(0deg, rgba(9, 35, 40, 0.6) 0%, transparent 50%);
+}
+
+.wild__content {
+    position: relative;
+    z-index: 2;
+    color: var(--cream);
+}
+
+.wild__content .sec-eyebrow {
+    color: var(--sage);
+}
+
+.wild__title {
+    color: var(--cream);
+    font-size: clamp(2.1rem, 4.6vw, 3.8rem);
+    margin-bottom: 26px;
+    max-width: 16ch;
+}
+
+.wild__lead {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 54ch;
+    margin-bottom: 52px;
+    font-size: clamp(0.98rem, 1.15vw, 1.08rem);
+}
+
+.wild__facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 940px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 36px;
+}
+
+.wild__fact-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--sage);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.wild__fact p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.66);
+    max-width: 30ch;
+}
+
+/* ============================================================
+   05 — STAY LIGHTLY
+   ============================================================ */
+.stay {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.stay__main {
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+
+.stay__main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s var(--ease-out);
+}
+
+.stay__main:hover img {
+    transform: scale(1.035);
+}
+
+.stay__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.stay__item {
+    display: flex;
+    gap: 22px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.stay__item:first-child {
+    padding-top: 0;
+}
+
+.stay__item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.stay__num {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--green);
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.stay__item h3 {
+    margin-bottom: 8px;
+}
+
+.stay__item p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+/* ============================================================
+   06 — JOURNEYS WITH PURPOSE
+   ============================================================ */
+.purpose {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+}
+
+.purpose__card {
+    display: flex;
+    flex-direction: column;
+}
+
+.purpose__media {
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    margin-bottom: 26px;
+}
+
+.purpose__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s var(--ease-out);
+    filter: saturate(0.92);
+}
+
+.purpose__card:hover .purpose__media img {
+    transform: scale(1.045);
+    filter: saturate(1.02);
+}
+
+.purpose__card h3 {
+    color: var(--cream);
+    margin-bottom: 12px;
+}
+
+.purpose__card p {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 34ch;
+}
+
+/* ============================================================
+   07 — MEET THE LANDSCAPE (STICKY)
+   ============================================================ */
+.landscape {
+    position: relative;
+    background: var(--cream);
+}
+
+.landscape__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.landscape__media {
+    position: absolute;
+    inset: 0;
+}
+
+.landscape__media img {
+    width: 100%;
+    height: 118%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.landscape__sticky::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9, 35, 40, 0.55) 0%, rgba(9, 35, 40, 0.35) 50%, rgba(9, 35, 40, 0.72) 100%);
+}
+
+.landscape__flow {
+    position: relative;
+    z-index: 2;
+    margin-top: -100vh;
+    padding-block: 0 clamp(80px, 12vh, 160px);
+}
+
+.landscape__panel {
+    max-width: 560px;
+    padding: clamp(36px, 4vw, 56px);
+    background: var(--cream);
+    margin-bottom: 34vh;
+}
+
+.landscape__panel:first-child {
+    margin-top: 22vh;
+    margin-bottom: 40vh;
+}
+
+.landscape__panel--right {
+    margin-left: auto;
+}
+
+.landscape__panel:last-child {
+    margin-bottom: 26vh;
+}
+
+.landscape__panel .sec-eyebrow {
+    color: var(--green);
+}
+
+.landscape__panel .sec-title {
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    margin-bottom: 20px;
+}
+
+.landscape__panel p {
+    font-size: 0.96rem;
+    color: var(--ink-soft);
+    max-width: none;
+}
+
+.landscape__step {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--green);
+    margin-bottom: 14px;
+    font-style: italic;
+}
+
+.landscape__panel h3 {
+    margin-bottom: 12px;
+}
+
+/* ============================================================
+   08 — LOCAL ROOTS
+   ============================================================ */
+.roots {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.roots__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+}
+
+.roots__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s var(--ease-out);
+}
+
+.roots__media:hover img {
+    transform: scale(1.04);
+}
+
+.roots__copy p {
+    color: var(--ink-soft);
+    margin-bottom: 34px;
+}
+
+.roots__list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 36px;
+}
+
+.roots__list li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.roots__list li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.roots__list span {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    padding-top: 4px;
+}
+
+.roots__list p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: none;
+}
+
+/* ============================================================
+   09 — OUR CONSERVATION WORK
+   ============================================================ */
+.conserve {
+    border-top: 1px solid var(--line);
+}
+
+.conserve__row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 34px;
+    align-items: start;
+    padding: clamp(28px, 3.4vw, 44px) 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding-left .5s var(--ease-out);
+}
+
+.conserve__row:hover {
+    padding-left: 12px;
+}
+
+.conserve__num {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    color: var(--sage);
+    line-height: 1;
+}
+
+.conserve__text h3 {
+    margin-bottom: 10px;
+}
+
+.conserve__text p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+}
+
+/* ============================================================
+   10 — TRAVEL AT NATURE'S PACE
+   ============================================================ */
+.pace {
+    position: relative;
+    padding-block: clamp(100px, 14vh, 180px);
+    overflow: hidden;
+    background: var(--deep);
+}
+
+.pace__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.pace__media img {
+    width: 100%;
+    height: 118%;
+    object-fit: cover;
+    object-position: center 55%;
+}
+
+.pace__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9, 35, 40, 0.88) 0%, rgba(9, 35, 40, 0.6) 45%, rgba(9, 35, 40, 0.92) 100%);
+}
+
+.pace__content {
+    position: relative;
+    z-index: 2;
+    color: var(--cream);
+}
+
+.pace__content .sec-eyebrow {
+    color: var(--sage);
+}
+
+.pace__title {
+    color: var(--cream);
+    font-size: clamp(2rem, 4.4vw, 3.6rem);
+    margin-bottom: clamp(48px, 7vw, 86px);
+    max-width: 18ch;
+}
+
+.pace__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 44px;
+}
+
+.pace__cell span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--sage);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.pace__cell h3 {
+    color: var(--cream);
+    margin-bottom: 12px;
+}
+
+.pace__cell p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.66);
+    max-width: 32ch;
+}
+
+/* ============================================================
+   11 — VOICES FROM THE JOURNEY
+   ============================================================ */
+.voices {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.voice blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.1vw, 1.85rem);
+    line-height: 1.38;
+    font-weight: 300;
+    color: var(--deep);
+    margin-bottom: 28px;
+    max-width: 30ch;
+}
+
+.voice--lead blockquote {
+    font-size: clamp(1.5rem, 2.7vw, 2.35rem);
+    max-width: 24ch;
+}
+
+.voice figcaption {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.voice figcaption img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.voice figcaption span {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+
+.voice figcaption strong {
+    font-weight: 600;
+    color: var(--deep);
+    font-size: 0.92rem;
+}
+
+.voices__side {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    padding-left: 44px;
+    border-left: 1px solid var(--line);
+}
+
+.voices__side .voice blockquote {
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+}
+
+/* ============================================================
+   12 — THE FIELD JOURNAL
+   ============================================================ */
+.journal {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.journal__feature {
+    display: block;
+}
+
+.journal__media {
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    margin-bottom: 26px;
+}
+
+.journal__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.3s var(--ease-out);
+}
+
+.journal__feature:hover .journal__media img {
+    transform: scale(1.04);
+}
+
+.journal__tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
+}
+
+.journal__feature h3 {
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    margin-bottom: 14px;
+    max-width: 22ch;
+    transition: color .4s var(--ease-out);
+}
+
+.journal__feature:hover h3 {
+    color: var(--teal);
+}
+
+.journal__feature p {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    max-width: 44ch;
+}
+
+.journal__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.journal__item {
+    display: block;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding-left .45s var(--ease-out);
+}
+
+.journal__item:first-child {
+    padding-top: 0;
+}
+
+.journal__item:last-child {
+    border-bottom: 0;
+}
+
+.journal__item:hover {
+    padding-left: 10px;
+}
+
+.journal__item h3 {
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.3;
+    transition: color .4s var(--ease-out);
+}
+
+.journal__item:hover h3 {
+    color: var(--teal);
+}
+
+.journal__item .journal__tag {
+    margin-bottom: 10px;
+}
+
+/* ============================================================
+   13 — WHY TRAVEL RESPONSIBLY
+   ============================================================ */
+.principles {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 34px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 46px;
+}
+
+.principle {
+    position: relative;
+}
+
+.principle__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    color: var(--sage);
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.principle h3 {
+    color: var(--cream);
+    font-size: 1.12rem;
+    margin-bottom: 12px;
+}
+
+.principle p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.62);
+    max-width: 30ch;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta {
+    position: relative;
+    padding-block: clamp(110px, 16vh, 200px);
+    overflow: hidden;
+    text-align: center;
+    background: var(--deep);
+}
+
+.cta__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.cta__media img {
+    width: 100%;
+    height: 118%;
+    object-fit: cover;
+}
+
+.cta__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9, 35, 40, 0.82) 0%, rgba(9, 35, 40, 0.68) 50%, rgba(9, 35, 40, 0.9) 100%);
+}
+
+.cta__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--cream);
+}
+
+.cta__inner .sec-eyebrow {
+    color: var(--sage);
+}
+
+.cta__title {
+    color: var(--cream);
+    font-size: clamp(2rem, 4.6vw, 3.8rem);
+    margin-bottom: 24px;
+    max-width: 22ch;
+}
+
+.cta__title em {
+    color: var(--sage);
+}
+
+.cta__lead {
+    color: rgba(255, 255, 255, 0.74);
+    max-width: 46ch;
+    margin-bottom: 44px;
+    font-size: 1.04rem;
+}
+
+.cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+    .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .hero__aside {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 26px 44px;
+        padding-left: 0;
+        padding-top: 30px;
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .hero__stat p {
+        max-width: 26ch;
+    }
+
+    .protect__head {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .protect__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .protect__note {
+        aspect-ratio: auto;
+        grid-column: 1 / -1;
+    }
+
+    .stay {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .stay__main {
+        aspect-ratio: 16 / 10;
+    }
+
+    .roots {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .roots__media {
+        aspect-ratio: 16 / 10;
+    }
+
+    .voices {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .voices__side {
+        padding-left: 0;
+        padding-top: 44px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .journal {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .principles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 34px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: auto;
+        padding-top: calc(var(--header-h) + 60px);
+    }
+
+    .hero__inner {
+        gap: 40px;
+    }
+
+    .hero__title {
+        font-size: clamp(2.3rem, 9vw, 3.4rem);
+    }
+
+    .protect__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .protect__fig,
+    .protect__note {
+        aspect-ratio: 4 / 3;
+    }
+
+    .protect__note {
+        padding: 30px 26px;
+    }
+
+    .dest-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .dest__media {
+        aspect-ratio: 16 / 11;
+    }
+
+    .wild {
+        min-height: auto;
+    }
+
+    .wild__facts {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding-top: 30px;
+    }
+
+    .wild__fact p {
+        max-width: none;
+    }
+
+    .purpose {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .purpose__media {
+        aspect-ratio: 16 / 11;
+    }
+
+    .purpose__card p {
+        max-width: none;
+    }
+
+    .landscape__sticky {
+        position: relative;
+        height: 62vh;
+    }
+
+    .landscape__media img {
+        height: 100%;
+    }
+
+    .landscape__flow {
+        margin-top: -62vh;
+        padding-block: 0 60px;
+    }
+
+    .landscape__panel {
+        max-width: none;
+        margin-bottom: 24px;
+        background: var(--cream);
+    }
+
+    .landscape__panel:first-child {
+        margin-top: 14vh;
+        margin-bottom: 34vh;
+    }
+
+    .landscape__panel:last-child {
+        margin-bottom: 8vh;
+    }
+
+    .pace__grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-top: 34px;
+    }
+
+    .pace__cell p {
+        max-width: none;
+    }
+
+    .principles {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .principle p {
+        max-width: none;
+    }
+
+    .conserve__row {
+        grid-template-columns: 54px 1fr;
+        gap: 20px;
+    }
+
+    .roots__list li {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .cta {
+        margin-top: -2px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+
+    .hero__aside {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .protect__fig,
+    .protect__note {
+        aspect-ratio: 4 / 3;
+    }
+
+    .stay__main {
+        aspect-ratio: 4 / 3;
+    }
+
+    .roots__media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .journal__media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .purpose__media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .voices__side {
+        gap: 36px;
+    }
+
+    .voice--lead blockquote {
+        font-size: 1.3rem;
+    }
+
+    .cta__actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .cta__actions .btn {
+        width: 100%;
+    }
+
+    .conserve__row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landscape__sticky {
+        position: relative;
+        height: auto;
+    }
+
+    .landscape__media {
+        position: relative;
+        height: 60vh;
+    }
+
+    .landscape__flow {
+        margin-top: 0;
+        padding-block: 60px;
+    }
+
+    .landscape__panel,
+    .landscape__panel:first-child,
+    .landscape__panel:last-child {
+        margin: 0 0 24px;
+    }
+}

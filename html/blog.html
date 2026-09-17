@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#092328">
+    <title>Field Journal — Stackly Eco Tourism</title>
+    <meta name="description"
+        content="The Field Journal — travel stories, wildlife notes, responsible travel guidance and destination dispatches from Stackly's eco-tourism work.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+
+<body>
+
+    
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a class="brand" href="../index.html" aria-label="Stackly — home">
+                <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+                <span class="brand-name">Stackly</span>
+            </a>
+
+            <nav class="primary-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html" class="is-active" aria-current="page">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn--outline btn--sm header-login" href="login.html">Login</a>
+                <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="navOverlay">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HAMBURGER OVERLAY ================= -->
+    <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+        <div class="nav-overlay__top">
+            <a class="brand brand--overlay" href="../index.html" aria-label="Stackly — home">
+                <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+                <span class="brand-name">Stackly</span>
+            </a>
+            <button class="nav-close" id="navClose" type="button" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.4"
+                        stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+
+        <nav class="nav-overlay__nav" aria-label="Mobile">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html" class="is-active" aria-current="page">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-overlay__foot">
+            <a class="btn btn--primary" href="login.html">Login</a>
+        </div>
+    </div>
+
+    <main id="main">
+
+        <!-- ============ THE FIELD JOURNAL (HERO) ============ -->
+        <section class="bl-hero" id="field-journal">
+            <div class="bl-hero__media">
+                <img class="bl-hero__img"
+                    src="../assets/images/img_001.webp"
+                    alt="Sunlight filtering through a dense evergreen forest canopy">
+                <div class="bl-hero__scrim"></div>
+            </div>
+
+            <div class="container bl-hero__inner">
+                <p class="eyebrow" data-hero="1">The Field Journal · Issue 07</p>
+                <h1 class="bl-hero__title" data-hero="2">
+                    Notes from the field,<br><em>written slowly.</em>
+                </h1>
+                <p class="bl-hero__lead" data-hero="3">
+                    Travel stories, wildlife notes, conservation briefings and responsible
+                    travel guidance — recorded on the ground, published when they're ready,
+                    not when a calendar says so.
+                </p>
+
+                <div class="bl-hero__actions" data-hero="4">
+                    <a class="btn btn--primary" href="services.html">Explore Experiences</a>
+                    <a class="btn btn--ghost" href="contact.html">Plan a Journey</a>
+                </div>
+
+                <div class="bl-hero__meta" data-hero="5">
+                    <div>
+                        <span>Cadence</span>
+                        <p>Published in seasonal issues, not on a daily cycle.</p>
+                    </div>
+                    <div>
+                        <span>Voices</span>
+                        <p>Guides, naturalists, hosts and travellers from each region.</p>
+                    </div>
+                    <div>
+                        <span>Focus</span>
+                        <p>Stories that change how a place is travelled through.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ STORY OF THE SEASON ============ -->
+        <section class="section section--cream" id="season">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Story of the Season</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            This season's <em>long read</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        One story per issue, given the space it deserves — reported slowly,
+                        written without hurry.
+                    </p>
+                </div>
+
+                <a class="season" href="../404.html" data-anim="left">
+                    <figure class="season__media">
+                        <img src="../assets/images/img_002.webp"
+                            alt="Mist settling over forested hills at first light" loading="lazy" decoding="async">
+                    </figure>
+
+                    <div class="season__body">
+                        <div class="season__tags">
+                            <span class="season__tag">Long Read · 14 min</span>
+                            <span class="season__tag season__tag--soft">Western Ghats</span>
+                        </div>
+                        <h3 class="season__title">
+                            What the forest remembers after the rain
+                        </h3>
+                        <p class="season__excerpt">
+                            Three weeks walking the same ridge at the end of the monsoon, watching
+                            how quickly a landscape resets itself — and what it doesn't reset.
+                        </p>
+                        <div class="season__meta">
+                            <span class="season__author">
+                                <img src="../assets/images/img_028.webp"
+                                    alt="" loading="lazy" decoding="async">
+                                By Arjun K. · Field Guide
+                            </span>
+                            <span class="season__cta">
+                                Read story <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ============ FROM THE WILD ============ -->
+        <section class="section section--sand" id="from-the-wild">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">From the Wild</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Nature &amp; <em>wildlife stories</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Animal sightings, forest notes and quiet observations — written by the
+                        people who spend their days watching.
+                    </p>
+                </div>
+
+                <div class="wild-grid">
+                    <a class="wild-grid__lead" href="../404.html" data-anim="left">
+                        <figure class="wild-grid__media wild-grid__media--lead">
+                            <img src="../assets/images/img_029.webp"
+                                alt="An elephant moving through tall grass at the edge of a forest" loading="lazy"
+                                decoding="async">
+                        </figure>
+                        <div class="wild-grid__body">
+                            <span class="wild-grid__tag">Wildlife · 9 min</span>
+                            <h3>Quiet mornings with the Kabini herd</h3>
+                            <p>Two weeks following the same family of elephants — and learning to read a forest by their
+                                pace.</p>
+                            <span class="wild-grid__cta">
+                                Read story <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a class="wild-grid__mini" href="../404.html" data-anim="right" data-delay="0.06">
+                        <figure class="wild-grid__media">
+                            <img src="../assets/images/img_030.webp"
+                                alt="A narrow trail through tall forest trees" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="wild-grid__body">
+                            <span class="wild-grid__tag">Forest · 6 min</span>
+                            <h3>The calls that tell you where you are</h3>
+                            <p>A short field guide to listening before looking.</p>
+                        </div>
+                    </a>
+
+                    <a class="wild-grid__mini" href="../404.html" data-anim="right" data-delay="0.12">
+                        <figure class="wild-grid__media">
+                            <img src="../assets/images/img_031.webp"
+                                alt="A calm river bordered by dense forest" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="wild-grid__body">
+                            <span class="wild-grid__tag">Rivers · 5 min</span>
+                            <h3>What a river tells you about the season</h3>
+                            <p>Reading water level, clarity and flow before a paddle day.</p>
+                        </div>
+                    </a>
+
+                    <a class="wild-grid__mini" href="../404.html" data-anim="right" data-delay="0.18">
+                        <figure class="wild-grid__media">
+                            <img src="../assets/images/img_032.webp"
+                                alt="Rolling green hills under soft morning light" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="wild-grid__body">
+                            <span class="wild-grid__tag">Grassland · 7 min</span>
+                            <h3>Small things on a hill at dawn</h3>
+                            <p>Why the smallest life in a landscape is often the most telling.</p>
+                        </div>
+                    </a>
+
+                    <a class="wild-grid__mini" href="../404.html" data-anim="right" data-delay="0.24">
+                        <figure class="wild-grid__media">
+                            <img src="../assets/images/img_027.webp"
+                                alt="A mountain lake reflecting the surrounding ridge" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="wild-grid__body">
+                            <span class="wild-grid__tag">Conservation · 8 min</span>
+                            <h3>The slow return of native flora</h3>
+                            <p>Documenting how a hillside recovers when human footfall is limited.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ RESPONSIBLE TRAVEL NOTES ============ -->
+        <section class="section section--deep" id="notes">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Responsible Travel Notes</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            How to travel <em>better than you did last time</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Practical notes on the small decisions — timing, packing, money, camera —
+                        that shape a place after you leave it.
+                    </p>
+                </div>
+
+                <ol class="notes">
+                    <li class="notes__row" data-anim="left">
+                        <span class="notes__num">01</span>
+                        <div class="notes__text">
+                            <h3>Travel in the shoulder season</h3>
+                            <p>Fewer people on the trail, less pressure on water and waste systems, and quieter
+                                wildlife.</p>
+                        </div>
+                        <span class="notes__time">6 min</span>
+                    </li>
+
+                    <li class="notes__row" data-anim="right" data-delay="0.06">
+                        <span class="notes__num">02</span>
+                        <div class="notes__text">
+                            <h3>Pack less than you think</h3>
+                            <p>Every extra kilo is weight on a trail, in a boat, and on the person carrying it.</p>
+                        </div>
+                        <span class="notes__time">4 min</span>
+                    </li>
+
+                    <li class="notes__row" data-anim="left" data-delay="0.12">
+                        <span class="notes__num">03</span>
+                        <div class="notes__text">
+                            <h3>Spend where you stay</h3>
+                            <p>Buy from village shops, eat with host families, hire local guides. The multiplier is the
+                                point.</p>
+                        </div>
+                        <span class="notes__time">5 min</span>
+                    </li>
+
+                    <li class="notes__row" data-anim="right" data-delay="0.18">
+                        <span class="notes__num">04</span>
+                        <div class="notes__text">
+                            <h3>Put the camera down</h3>
+                            <p>Some places are not improved by being photographed. Learning when not to shoot is a
+                                skill.</p>
+                        </div>
+                        <span class="notes__time">7 min</span>
+                    </li>
+
+                    <li class="notes__row" data-anim="left" data-delay="0.24">
+                        <span class="notes__num">05</span>
+                        <div class="notes__text">
+                            <h3>Ask before you photograph people</h3>
+                            <p>A short, honest conversation is worth more than a good frame you didn't earn.</p>
+                        </div>
+                        <span class="notes__time">3 min</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ DESTINATION DISPATCHES ============ -->
+        <section class="section section--cream" id="dispatches">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Destination Dispatches</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Notes from <em>specific places</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Region-focused dispatches, written on the ground — the kind of detail
+                        that doesn't survive in a guidebook.
+                    </p>
+                </div>
+
+                <div class="dispatches">
+                    <a class="dispatch dispatch--tall" href="../404.html" data-anim="left">
+                        <figure class="dispatch__media">
+                            <img src="../assets/images/img_033.webp"
+                                alt="A mountain lake reflecting a ridge line at dusk" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="dispatch__body">
+                            <span class="dispatch__tag">Western Ghats · 8 min</span>
+                            <h3>Monsoon, and the ridge that stays quiet</h3>
+                            <p>Why one stretch of ridge is best walked in August — and why almost nobody does.</p>
+                            <span class="dispatch__cta">
+                                Read dispatch <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <a class="dispatch" href="../404.html" data-anim="up" data-delay="0.06">
+                        <figure class="dispatch__media">
+                            <img src="../assets/images/img_034.webp"
+                                alt="A wide mountain valley fading into evening haze" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="dispatch__body">
+                            <span class="dispatch__tag">Nilgiri Hills · 6 min</span>
+                            <h3>Grassland, shola, and what's between them</h3>
+                            <p>The seam where two ecosystems meet is usually the most interesting place to stand.</p>
+                        </div>
+                    </a>
+
+                    <a class="dispatch" href="../404.html" data-anim="up" data-delay="0.12">
+                        <figure class="dispatch__media">
+                            <img src="../assets/images/img_035.webp"
+                                alt="A calm river bordered by dense forest" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="dispatch__body">
+                            <span class="dispatch__tag">Kabini Basin · 7 min</span>
+                            <h3>Following the water in a dry year</h3>
+                            <p>What happens to wildlife travel when the rains come late — and how to plan around it.</p>
+                        </div>
+                    </a>
+
+                    <a class="dispatch" href="../404.html" data-anim="up" data-delay="0.18">
+                        <figure class="dispatch__media">
+                            <img src="../assets/images/img_019.webp"
+                                alt="A wide mountain valley lit by low morning sun" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="dispatch__body">
+                            <span class="dispatch__tag">Spiti Valley · 9 min</span>
+                            <h3>High altitude and slow acclimatization</h3>
+                            <p>Why rushing the ascent deprives you of the landscape's most subtle details.</p>
+                        </div>
+                    </a>
+
+                    <a class="dispatch" href="../404.html" data-anim="up" data-delay="0.24">
+                        <figure class="dispatch__media">
+                            <img src="../assets/images/img_002.webp"
+                                alt="Mist settling over forested hills at first light" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="dispatch__body">
+                            <span class="dispatch__tag">Tirthan Valley · 5 min</span>
+                            <h3>The architecture of cold climates</h3>
+                            <p>How traditional wood and stone houses regulate temperature without power.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+      
+     
+
+        <!-- ============ TRAILS & EXPERIENCES ============ -->
+        <section class="section section--deep" id="trails">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Trails &amp; Experiences</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Adventure, <em>written down properly</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Practical guides for walks, paddles and multi-day journeys — the
+                        details that make the difference between a good trip and a hard one.
+                    </p>
+                </div>
+
+                <div class="trails">
+                    <a class="trail-feature" href="../404.html" data-anim="left">
+                        <figure class="trail-feature__media">
+                            <img src="../assets/images/img_037.webp"
+                                alt="Hikers walking a ridge trail at sunrise" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="trail-feature__body">
+                            <span class="trail-feature__tag">Field Guide · 12 min</span>
+                            <h3>How to plan a four-day ridge walk</h3>
+                            <p>Water sources, camping etiquette, and why we plan around drainage rather than distance.
+                            </p>
+                            <span class="trail-feature__cta">
+                                Read guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </a>
+
+                    <div class="trails__side">
+                        <a class="trail-item" href="../404.html" data-anim="right">
+                            <span class="trail-item__tag">Paddling · 7 min</span>
+                            <h3>Kayaking still water: a beginner's field guide</h3>
+                        </a>
+                        <a class="trail-item" href="../404.html" data-anim="right" data-delay="0.06">
+                            <span class="trail-item__tag">Trekking · 9 min</span>
+                            <h3>What to carry — and what to leave behind</h3>
+                        </a>
+                        <a class="trail-item" href="../404.html" data-anim="right" data-delay="0.12">
+                            <span class="trail-item__tag">Wildlife · 6 min</span>
+                            <h3>A short guide to dawn drives</h3>
+                        </a>
+                        <a class="trail-item" href="../404.html" data-anim="right" data-delay="0.18">
+                            <span class="trail-item__tag">Hills · 8 min</span>
+                            <h3>Walking the shola edge without eroding it</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GUIDES FOR THE CURIOUS ============ -->
+        <section class="section section--sand" id="guides">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Guides for the Curious</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Resources for <em>planning properly</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Things worth reading before you book anything — brief, practical, and
+                        written for people who'd rather understand a place than tick it off.
+                    </p>
+                </div>
+
+                <div class="guides">
+                    <a class="guide" href="../404.html" data-anim="left">
+                        <span class="guide__icon"><i class="fa-solid fa-map" aria-hidden="true"></i></span>
+                        <span class="guide__tag">Reference</span>
+                        <h3>South India — a seasonal map</h3>
+                        <p>When each region is at its best, and when it's best left alone.</p>
+                        <span class="guide__cta">
+                            Open guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="guide" href="../404.html" data-anim="up" data-delay="0.06">
+                        <span class="guide__icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span>
+                        <span class="guide__tag">Responsible travel</span>
+                        <h3>A pack list that leaves nothing behind</h3>
+                        <p>What to bring, what to leave, and what to carry back out with you.</p>
+                        <span class="guide__cta">
+                            Open guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="guide" href="../404.html" data-anim="up" data-delay="0.12">
+                        <span class="guide__icon"><i class="fa-solid fa-binoculars" aria-hidden="true"></i></span>
+                        <span class="guide__tag">Wildlife</span>
+                        <h3>Birding without a checklist</h3>
+                        <p>How to watch birds in a way that leaves the forest undisturbed.</p>
+                        <span class="guide__cta">
+                            Open guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a class="guide" href="../404.html" data-anim="right" data-delay="0.18">
+                        <span class="guide__icon"><i class="fa-solid fa-mountain-sun" aria-hidden="true"></i></span>
+                        <span class="guide__tag">Terrain</span>
+                        <h3>Reading hill country on foot</h3>
+                        <p>Slope, drainage, shade and weather — a short primer for walkers.</p>
+                        <span class="guide__cta">
+                            Open guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ JOURNAL ARCHIVE ============ -->
+        <section class="section section--cream" id="archive">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Journal Archive</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Everything, <em>in order</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        A full index of journal entries. Use it to browse by theme,
+                        region or date.
+                    </p>
+                </div>
+
+                <div class="archive">
+                    <div class="archive__head" aria-hidden="true">
+                        <span>Date</span>
+                        <span>Category</span>
+                        <span>Title</span>
+                        <span class="archive__time">Read</span>
+                    </div>
+
+                    <ul class="archive__list">
+                        <li class="archive__row" data-anim="left">
+                            <a href="../404.html">
+                                <span class="archive__date">Aug 2026</span>
+                                <span class="archive__cat">Long Read</span>
+                                <span class="archive__title">What the forest remembers after the rain</span>
+                                <span class="archive__time">14 min</span>
+                            </a>
+                        </li>
+                        <li class="archive__row" data-anim="right" data-delay="0.04">
+                            <a href="../404.html">
+                                <span class="archive__date">Jul 2026</span>
+                                <span class="archive__cat">Wildlife</span>
+                                <span class="archive__title">Quiet mornings with the Kabini herd</span>
+                                <span class="archive__time">9 min</span>
+                            </a>
+                        </li>
+                        <li class="archive__row" data-anim="left" data-delay="0.08">
+                            <a href="../404.html">
+                                <span class="archive__date">Jul 2026</span>
+                                <span class="archive__cat">Notes</span>
+                                <span class="archive__title">Travel in the shoulder season</span>
+                                <span class="archive__time">6 min</span>
+                            </a>
+                        </li>
+                        <li class="archive__row" data-anim="right" data-delay="0.12">
+                            <a href="../404.html">
+                                <span class="archive__date">Jun 2026</span>
+                                <span class="archive__cat">Dispatch</span>
+                                <span class="archive__title">Monsoon, and the ridge that stays quiet</span>
+                                <span class="archive__time">8 min</span>
+                            </a>
+                        </li>
+                        <li class="archive__row" data-anim="left" data-delay="0.16">
+                            <a href="../404.html">
+                                <span class="archive__date">Jun 2026</span>
+                                <span class="archive__cat">Field Guide</span>
+                                <span class="archive__title">How to plan a four-day ridge walk</span>
+                                <span class="archive__time">12 min</span>
+                            </a>
+                        </li>
+                        <li class="archive__row" data-anim="right" data-delay="0.20">
+                            <a href="../404.html">
+                                <span class="archive__date">May 2026</span>
+                                <span class="archive__cat">Briefing</span>
+                                <span class="archive__title">Why elephant corridors are a travel problem too</span>
+                                <span class="archive__time">5 min</span>
+                            </a>
+                        </li>
+                        <li class="archive__row" data-anim="left" data-delay="0.24">
+                            <a href="../404.html">
+                                <span class="archive__date">Apr 2026</span>
+                                <span class="archive__cat">Voices</span>
+                                <span class="archive__title">On slowing down, from the people who guide</span>
+                                <span class="archive__time">7 min</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a class="archive__more" href="../404.html" data-anim="up" data-delay="0.28">
+                        View full archive <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CTA — KEEP EXPLORING ============ -->
+        <section class="bl-cta" id="cta">
+            <div class="bl-cta__media">
+                <img src="../assets/images/img_019.webp"
+                    alt="A wide mountain valley lit by low morning sun" loading="lazy" decoding="async">
+                <div class="bl-cta__scrim"></div>
+            </div>
+
+            <div class="container bl-cta__inner">
+                <p class="sec-eyebrow" data-anim="up">Keep Exploring</p>
+                <h2 class="bl-cta__title" data-anim="up" data-delay="0.06">
+                    One story,<br><em>once a season.</em>
+                </h2>
+                <p class="bl-cta__lead" data-anim="up" data-delay="0.12">
+                    We send the journal as a seasonal letter — no marketing, no daily
+                    noise. Just the field notes and one long read.
+                </p>
+
+                <form class="bl-cta__form" id="newsletterForm" novalidate data-anim="up" data-delay="0.18">
+                    <div class="bl-cta__field">
+                        <label for="newsletterEmail" class="bl-cta__label">Email address</label>
+                        <input type="email" id="newsletterEmail" name="email" class="bl-cta__input"
+                            placeholder="your@email.com" autocomplete="email" required>
+                        <span class="bl-cta__error" id="newsletterError" role="alert"></span>
+                    </div>
+                    <button type="submit" class="btn btn--primary">
+                        Subscribe <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+
+                <div class="bl-cta__links" data-anim="up" data-delay="0.24">
+                    <a class="btn btn--ghost" href="contact.html">Plan a Journey</a>
+                    <a class="btn btn--ghost" href="services.html">Browse Experiences</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <a class="brand" href="../index.html" aria-label="Stackly — home">
+                        <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+                        <span class="brand-name">Stackly</span>
+                    </a>
+                    <p>
+                        Lower-impact journeys through forests, mountains and rivers — designed to
+                        encourage deeper connections with local landscapes and the people who
+                        steward them.
+                    </p>
+                    <div class="social-row">
+                        <a href="../404.html" aria-label="Stackly on Instagram">
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="../404.html" aria-label="Stackly on Facebook">
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="../404.html" aria-label="Stackly on X">
+                            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="../404.html" aria-label="Stackly on YouTube">
+                            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col--explore">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="../404.html">Destinations</a></li>
+                        <li><a href="../404.html">Experiences</a></li>
+                        <li><a href="../404.html">Wildlife</a></li>
+                        <li><a href="../404.html">Eco Stays</a></li>
+                        <li><a href="../404.html">Responsible Travel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col--resources">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../404.html">Travel Guide</a></li>
+                        <li><a href="../404.html">Sustainability</a></li>
+                        <li><a href="blog.html">Journal</a></li>
+                        <li><a href="../404.html">FAQ</a></li>
+                        <li><a href="../404.html">Travel Tips</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col--contact">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <span>+91 00000 00000</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span>Stackly<br>Salem, Tamil Nadu, India</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <span>hello@stackly.example</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="footerYear">2026</span> Stackly. All rights reserved.</p>
+                <p><a href="../404.html">Privacy</a> · <a href="../404.html">Terms</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= GSAP ================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            var isMobile = window.matchMedia("(max-width: 900px)").matches;
+
+            /* ---------------- Hamburger ---------------- */
+            var hamburger = document.getElementById("hamburger");
+            var overlay = document.getElementById("navOverlay");
+            var closeBtn = document.getElementById("navClose");
+
+            function lockScroll() { document.body.classList.add("is-locked"); }
+            function unlockScroll() { document.body.classList.remove("is-locked"); }
+
+            function openMenu() {
+                overlay.hidden = false;
+                hamburger.setAttribute("aria-expanded", "true");
+                hamburger.setAttribute("aria-label", "Close menu");
+                lockScroll();
+
+                if (reduceMotion || typeof gsap === "undefined") {
+                    overlay.classList.add("is-open");
+                } else {
+                    overlay.classList.add("is-open");
+                    gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.32, ease: "power2.out" });
+                    gsap.fromTo(".nav-overlay__nav a",
+                        { opacity: 0, x: -46 },
+                        { opacity: 1, x: 0, duration: 0.55, stagger: 0.07, delay: 0.08, ease: "power4.out" }
+                    );
+                    gsap.fromTo(".nav-overlay__foot .btn",
+                        { opacity: 0, y: 24 },
+                        { opacity: 1, y: 0, duration: 0.5, delay: 0.35, ease: "power3.out" }
+                    );
+                }
+                closeBtn.focus();
+            }
+
+            function closeMenu() {
+                hamburger.setAttribute("aria-expanded", "false");
+                hamburger.setAttribute("aria-label", "Open menu");
+                unlockScroll();
+
+                if (reduceMotion || typeof gsap === "undefined") {
+                    overlay.classList.remove("is-open");
+                    overlay.hidden = true;
+                } else {
+                    gsap.to(overlay, {
+                        opacity: 0, duration: 0.25, ease: "power2.in",
+                        onComplete: function () {
+                            overlay.classList.remove("is-open");
+                            overlay.hidden = true;
+                            gsap.set(overlay, { clearProps: "opacity" });
+                        }
+                    });
+                }
+                hamburger.focus();
+            }
+
+            hamburger.addEventListener("click", function () {
+                if (hamburger.getAttribute("aria-expanded") === "true") closeMenu();
+                else openMenu();
+            });
+            closeBtn.addEventListener("click", closeMenu);
+            overlay.querySelectorAll("a").forEach(function (l) {
+                l.addEventListener("click", closeMenu);
+            });
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+                    closeMenu();
+                }
+            });
+
+            /* ---------------- Header stuck ---------------- */
+            var header = document.getElementById("siteHeader");
+            var lastY = -1;
+            function onScroll() {
+                var y = window.scrollY || window.pageYOffset;
+                if (y === lastY) return;
+                lastY = y;
+                header.classList.toggle("is-stuck", y > 40);
+            }
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+
+            /* ---------------- Footer year ---------------- */
+            var yEl = document.getElementById("footerYear");
+            if (yEl) yEl.textContent = new Date().getFullYear();
+
+            /* ---------------- Newsletter form ---------------- */
+            var form = document.getElementById("newsletterForm");
+            if (form) {
+                var emailInput = document.getElementById("newsletterEmail");
+                var errorEl = document.getElementById("newsletterError");
+                var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    var val = emailInput.value.trim();
+
+                    if (!val) {
+                        errorEl.textContent = "Please enter your email address.";
+                        errorEl.classList.add("is-visible");
+                        emailInput.focus();
+                        return;
+                    }
+                    if (!emailRe.test(val)) {
+                        errorEl.textContent = "Please enter a valid email address.";
+                        errorEl.classList.add("is-visible");
+                        emailInput.focus();
+                        return;
+                    }
+
+                    errorEl.textContent = "";
+                    errorEl.classList.remove("is-visible");
+                    emailInput.value = "";
+                    window.location.href = "../404.html";
+                });
+
+                emailInput.addEventListener("input", function () {
+                    if (errorEl.classList.contains("is-visible")) {
+                        errorEl.textContent = "";
+                        errorEl.classList.remove("is-visible");
+                    }
+                });
+            }
+
+            /* ---------------- GSAP ---------------- */
+            if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+                document.querySelectorAll("[data-anim],[data-hero]").forEach(function (el) {
+                    el.style.opacity = 1; el.style.transform = "none";
+                });
+                return;
+            }
+            gsap.registerPlugin(ScrollTrigger);
+
+            if (reduceMotion) {
+                gsap.set("[data-anim],[data-hero]", { clearProps: "all", opacity: 1 });
+                return;
+            }
+
+            /* ---- Hero entrance ---- */
+            var heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+            heroTl
+                .from(".bl-hero__img", { scale: 1.14, duration: 2.0, ease: "power3.out" }, 0)
+                .from("[data-hero='1']", { opacity: 0, x: -44, duration: 0.9 }, 0.15)
+                .from("[data-hero='2']", { opacity: 0, y: 44, duration: 1.15 }, 0.28)
+                .from("[data-hero='3']", { opacity: 0, x: -44, duration: 1.0 }, 0.48)
+                .from("[data-hero='4'] .btn", {
+                    opacity: 0, y: 24, duration: 0.8, stagger: 0.1
+                }, 0.68)
+                .from("[data-hero='5'] > div", {
+                    opacity: 0, x: 50, duration: 0.9, stagger: 0.12
+                }, 0.82);
+
+            /* ---- Hero parallax ---- */
+            gsap.to(".bl-hero__img", {
+                yPercent: 12, ease: "none",
+                scrollTrigger: { trigger: ".bl-hero", start: "top top", end: "bottom top", scrub: 1 }
+            });
+
+            /* ---- Generic slide animations ---- */
+            var SLIDE_X = isMobile ? 80 : 42;
+            var SLIDE_Y = isMobile ? 46 : 34;
+
+            gsap.utils.toArray("[data-anim]").forEach(function (el) {
+                var dir = el.getAttribute("data-anim");
+                var delay = parseFloat(el.getAttribute("data-delay")) || 0;
+                var cfg = { opacity: 0, duration: isMobile ? 1.05 : 0.95, delay: delay, ease: "power3.out" };
+
+                if (dir === "left") cfg.x = -SLIDE_X;
+                else if (dir === "right") cfg.x = SLIDE_X;
+                else cfg.y = SLIDE_Y;
+
+                gsap.from(el, Object.assign(cfg, {
+                    scrollTrigger: { trigger: el, start: isMobile ? "top 92%" : "top 86%", once: true }
+                }));
+            });
+
+            /* ---- Full-bleed parallax ---- */
+            gsap.fromTo(".bl-cta__media img", { yPercent: -6 }, {
+                yPercent: 6, ease: "none",
+                scrollTrigger: {
+                    trigger: ".bl-cta",
+                    start: "top bottom", end: "bottom top", scrub: 1
+                }
+            });
+
+            window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+        })();
+    </script>
+
+</body>
+
+</html>

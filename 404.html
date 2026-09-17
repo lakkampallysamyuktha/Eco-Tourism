@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#092328">
+    <title>Page not found — Stackly Eco Tourism</title>
+    <meta name="description" content="This page isn't on our map. Head back home or return to where you were.">
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="global.css">
+
+    <style>
+        /* ============================================================
+   404 — page-scoped styles
+   ============================================================ */
+
+        .nf {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px var(--gutter);
+            overflow: hidden;
+            background: var(--deep);
+            color: var(--cream);
+        }
+
+        /* Background photography */
+        .nf__media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .nf__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 55%;
+        }
+
+        .nf__scrim {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(9, 35, 40, 0.82) 0%, rgba(9, 35, 40, 0.55) 45%, rgba(9, 35, 40, 0.92) 100%),
+                radial-gradient(circle at 30% 40%, rgba(9, 35, 40, 0.35) 0%, rgba(9, 35, 40, 0.7) 70%);
+        }
+
+        /* Centered card */
+        .nf__inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 640px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Logo */
+        .nf__logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            transition: opacity .4s var(--ease-out);
+        }
+
+        .nf__logo:hover {
+            opacity: 0.82;
+        }
+
+        .nf__logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .nf__logo span {
+            display: none !important;
+        }
+
+        /* Code */
+        .nf__code {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-size: clamp(4.5rem, 18vw, 8.5rem);
+            line-height: 0.88;
+            letter-spacing: -0.045em;
+            color: var(--cream);
+            margin-bottom: 24px;
+            text-shadow: 0 2px 40px rgba(9, 35, 40, 0.5);
+        }
+
+        .nf__code em {
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        /* Heading */
+        .nf__title {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--cream);
+            margin-bottom: 18px;
+            max-width: 22ch;
+        }
+
+        /* Lead text */
+        .nf__lead {
+            font-size: clamp(0.96rem, 1.15vw, 1.06rem);
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.78);
+            max-width: 48ch;
+            margin-bottom: 40px;
+        }
+
+        /* Actions */
+        .nf__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nf__actions .btn {
+            padding: 16px 34px;
+        }
+
+        .nf__actions .btn i {
+            font-size: 0.72rem;
+            transition: transform .4s var(--ease-out);
+        }
+
+        .nf__actions .btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .nf__actions .btn--back:hover i {
+            transform: translateX(-5px);
+        }
+
+        /* Bottom note */
+        .nf__note {
+            margin-top: 44px;
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+        @media (max-width: 600px) {
+            .nf {
+                padding: 32px 22px;
+            }
+
+            .nf__logo {
+                margin-bottom: 32px;
+            }
+
+            .nf__logo img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nf__logo span {
+                font-size: 1.28rem;
+            }
+
+            .nf__code {
+                margin-bottom: 20px;
+            }
+
+            .nf__lead {
+                margin-bottom: 34px;
+            }
+
+            .nf__actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nf__actions .btn {
+                width: 100%;
+                padding: 15px 26px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .nf__logo,
+            .nf__actions .btn i {
+                transition: none;
+            }
+
+            .nf__actions .btn i {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="nf" id="main">
+        <div class="nf__media">
+            <img class="nf__img"
+                src="assets/images/img_001.webp"
+                alt="Low sunlight breaking through a dense evergreen forest canopy">
+            <div class="nf__scrim"></div>
+        </div>
+
+        <div class="nf__inner">
+            <a class="nf__logo" href="index.html" aria-label="Stackly — home">
+                <img src="logo.webp" alt="Stackly logo">
+                <span>Stackly</span>
+            </a>
+
+            <span class="nf__code" data-anim="up">4<em>0</em>4</span>
+
+            <h1 class="nf__title" data-anim="up" data-delay="0.06">
+                This path isn't on our map.
+            </h1>
+
+            <p class="nf__lead" data-anim="up" data-delay="0.12">
+                The page you were looking for has moved, changed, or was never here.
+                Nothing broken — just a wrong turn. Head back home, or return to where
+                you were.
+            </p>
+
+            <div class="nf__actions" data-anim="up" data-delay="0.18">
+                <a class="btn btn--primary" href="index.html">
+                    Back to Home <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <button type="button" class="btn btn--ghost btn--back" id="goBack">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Go Back
+                </button>
+            </div>
+
+            <p class="nf__note" data-anim="up" data-delay="0.24">Stackly · Eco Tourism</p>
+        </div>
+    </main>
+
+    <!-- ================= GSAP ================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            /* ---------------- Go Back button ---------------- */
+            var goBack = document.getElementById("goBack");
+            if (goBack) {
+                goBack.addEventListener("click", function () {
+                    if (window.history.length > 1) {
+                        window.history.back();
+                    } else {
+                        window.location.href = "index.html";
+                    }
+                });
+            }
+
+            /* ---------------- Entrance animation ---------------- */
+            if (typeof gsap === "undefined" || reduceMotion) {
+                document.querySelectorAll("[data-anim]").forEach(function (el) {
+                    el.style.opacity = 1;
+                    el.style.transform = "none";
+                });
+                return;
+            }
+
+            var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+            tl.from(".nf__img", { scale: 1.12, duration: 2.0, ease: "power3.out" }, 0)
+                .from(".nf__logo", { opacity: 0, y: -20, duration: 0.9 }, 0.15)
+                .from("[data-anim='up']", {
+                    opacity: 0, y: 40, duration: 1.0, stagger: 0.1
+                }, 0.3);
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092328">
+  <title>Admin — Stackly</title>
+  <meta name="description"
+    content="Stackly admin dashboard — operations, destinations, reservations and sustainability.">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../global.css">
+
+  <style>
+    /* ============================================================
+   ADMIN DASHBOARD — page-scoped styles
+   ============================================================ */
+
+    body.admin {
+      background: #EAE5DA;
+      /* sand neutral — different from User cream */
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ------------------------------------------------------------
+   FIXED HEADER
+   ------------------------------------------------------------ */
+    .adm-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 76px;
+      background: #12544F;
+      /* forest teal — different from User's deep */
+      color: #F4F1EA;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      gap: 24px;
+    }
+
+    .adm-header__left {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .adm-header__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .adm-header__brand img {
+      width: 130px;
+      height: 48px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .adm-header__brand-name {
+      display: none !important;
+    }
+
+    .adm-header__role {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      color: #F4F1EA;
+    }
+
+    .adm-header__role::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8BBB92;
+      box-shadow: 0 0 0 3px rgba(139, 187, 146, 0.25);
+    }
+
+    .adm-header__welcome {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      min-width: 0;
+    }
+
+    .adm-header__welcome h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1rem, 1.6vw, 1.28rem);
+      font-weight: 400;
+      color: #F4F1EA;
+      letter-spacing: -0.01em;
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .adm-header__welcome p {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 4px 0 0;
+      max-width: none;
+    }
+
+    .adm-header__right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .adm-header__email {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .adm-header__profile {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #F4F1EA;
+      font-size: 0.92rem;
+      transition: background .35s ease, border-color .35s ease;
+    }
+
+    .adm-header__profile:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .adm-header__menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: #F4F1EA;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 1rem;
+      place-items: center;
+      cursor: pointer;
+      transition: background .35s ease;
+    }
+
+    .adm-header__menu-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ------------------------------------------------------------
+   FIXED SIDEBAR (desktop)
+   ------------------------------------------------------------ */
+    .adm-sidebar {
+      position: fixed;
+      top: 76px;
+      left: 0;
+      bottom: 0;
+      width: 280px;
+      z-index: 90;
+      background: #0E2C31;
+      color: #F4F1EA;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      padding: 22px 20px 22px;
+      overflow-y: auto;
+    }
+
+    .adm-sidebar__label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin: 0 0 14px 8px;
+    }
+
+    .adm-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+    }
+
+    .adm-nav li+li {
+      margin-top: 4px;
+    }
+
+    .adm-nav button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      background: transparent;
+      border: 1px solid transparent;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.72);
+      text-align: left;
+      cursor: pointer;
+      transition: background .3s ease, color .3s ease, border-color .3s ease;
+    }
+
+    .adm-nav button i {
+      width: 20px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: color .3s ease;
+      text-align: center;
+    }
+
+    .adm-nav button:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #F4F1EA;
+    }
+
+    .adm-nav button:hover i {
+      color: #8BBB92;
+    }
+
+    .adm-nav button.is-active {
+      background: rgba(139, 187, 146, 0.14);
+      color: #F4F1EA;
+      border-color: rgba(139, 187, 146, 0.28);
+    }
+
+    .adm-nav button.is-active i {
+      color: #8BBB92;
+    }
+
+    .adm-nav button.is-active::after {
+      content: "";
+      margin-left: auto;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8BBB92;
+    }
+
+    .adm-profile {
+      margin-top: auto;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .adm-profile__avatar {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(139, 187, 146, 0.16);
+      color: #8BBB92;
+      font-size: 0.92rem;
+      flex-shrink: 0;
+    }
+
+    .adm-profile__info {
+      min-width: 0;
+      line-height: 1.3;
+    }
+
+    .adm-profile__info strong {
+      display: block;
+      font-size: 0.86rem;
+      color: #F4F1EA;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .adm-profile__info span {
+      display: block;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.5);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .adm-logout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 6px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.78);
+      font-family: "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .35s ease, color .35s ease, border-color .35s ease;
+    }
+
+    .adm-logout i {
+      font-size: 0.72rem;
+    }
+
+    .adm-logout:hover {
+      background: rgba(194, 74, 58, 0.14);
+      border-color: rgba(194, 74, 58, 0.5);
+      color: #F4F1EA;
+    }
+
+    /* ------------------------------------------------------------
+   MAIN — only this scrolls
+   ------------------------------------------------------------ */
+    .adm-main {
+      margin-left: 280px;
+      padding: 108px 40px 60px;
+      min-height: 100vh;
+      min-width: 0;
+    }
+
+    .adm-panel {
+      display: none;
+    }
+
+    .adm-panel.is-active {
+      display: block;
+      animation: panelIn .5s ease both;
+    }
+
+    @keyframes panelIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-head__copy {
+      min-width: 0;
+    }
+
+    .panel-head__eyebrow {
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #12544F;
+      margin: 0 0 10px;
+    }
+
+    .panel-head__title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--deep);
+      margin: 0 0 8px;
+      max-width: none;
+    }
+
+    .panel-head__lead {
+      font-size: 0.94rem;
+      color: var(--ink-soft);
+      margin: 0;
+      max-width: 60ch;
+    }
+
+    /* KPI grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .kpi-card {
+      padding: 18px 20px 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .kpi-card__label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #12544F;
+    }
+
+    .kpi-card__label i {
+      color: var(--green);
+      font-size: 0.72rem;
+    }
+
+    .kpi-card__value {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--deep);
+    }
+
+    .kpi-card__sub {
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    .kpi-card__delta {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .kpi-card__delta--up {
+      background: rgba(42, 131, 95, 0.14);
+      color: var(--green);
+    }
+
+    .kpi-card__delta--down {
+      background: rgba(194, 74, 58, 0.14);
+      color: #B04A3A;
+    }
+
+    .kpi-card__delta--flat {
+      background: rgba(9, 35, 40, 0.06);
+      color: var(--ink-soft);
+    }
+
+    /* Generic card */
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 24px 24px 22px;
+      min-width: 0;
+    }
+
+    .card__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card__title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 400;
+      color: var(--deep);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .card__note {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+    }
+
+    /* Rows */
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .row-2--flip {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    /* Status pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .pill--ok {
+      background: rgba(42, 131, 95, 0.14);
+      color: var(--green);
+    }
+
+    .pill--pending {
+      background: rgba(194, 140, 52, 0.14);
+      color: #8B6B1F;
+    }
+
+    .pill--alert {
+      background: rgba(194, 74, 58, 0.14);
+      color: #B04A3A;
+    }
+
+    .pill--paused {
+      background: rgba(9, 35, 40, 0.08);
+      color: var(--ink-soft);
+    }
+
+    .pill--info {
+      background: rgba(18, 84, 79, 0.12);
+      color: var(--teal);
+    }
+
+    /* Activity feed */
+    .feed {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feed__item {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feed__item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .feed__item:first-child {
+      padding-top: 0;
+    }
+
+    .feed__icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(42, 131, 95, 0.1);
+      color: var(--green);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .feed__icon--teal {
+      background: rgba(18, 84, 79, 0.1);
+      color: var(--teal);
+    }
+
+    .feed__icon--warm {
+      background: rgba(194, 140, 52, 0.14);
+      color: #8B6B1F;
+    }
+
+    .feed__icon--alert {
+      background: rgba(194, 74, 58, 0.12);
+      color: #B04A3A;
+    }
+
+    .feed__body {
+      min-width: 0;
+    }
+
+    .feed__title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--deep);
+      margin: 0 0 3px;
+      line-height: 1.35;
+    }
+
+    .feed__meta {
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .feed__time {
+      font-size: 0.7rem;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    .adm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      min-width: 640px;
+    }
+
+    .adm-table thead th {
+      text-align: left;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(9, 35, 40, 0.02);
+    }
+
+    .adm-table tbody td {
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      vertical-align: middle;
+    }
+
+    .adm-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .adm-table tbody tr:hover {
+      background: rgba(42, 131, 95, 0.03);
+    }
+
+    .adm-table strong {
+      font-weight: 500;
+      color: var(--deep);
+    }
+
+    .adm-table td.num {
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    /* Capacity bar inline */
+    .cap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 140px;
+    }
+
+    .cap__bar {
+      flex: 1;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(9, 35, 40, 0.07);
+      overflow: hidden;
+    }
+
+    .cap__fill {
+      display: block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2A835F, #8BBB92);
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .cap__fill--warm {
+      background: linear-gradient(90deg, #8B6B1F, #C28C34);
+    }
+
+    .cap__fill--alert {
+      background: linear-gradient(90deg, #B04A3A, #C27060);
+    }
+
+    .cap__val {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+      min-width: 34px;
+      text-align: right;
+    }
+
+    /* Progress */
+    .progress {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .progress:last-child {
+      margin-bottom: 0;
+    }
+
+    .progress__row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .progress__label {
+      font-size: 0.84rem;
+      color: var(--deep);
+      font-weight: 500;
+    }
+
+    .progress__value {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress__bar {
+      width: 100%;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(9, 35, 40, 0.07);
+      overflow: hidden;
+    }
+
+    .progress__fill {
+      display: block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #12544F, #2A835F);
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .progress__fill--warm {
+      background: linear-gradient(90deg, #8B6B1F, #C28C34);
+    }
+
+    .progress__fill--alert {
+      background: linear-gradient(90deg, #B04A3A, #C27060);
+    }
+
+    /* Bars */
+    .bars {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+      align-items: end;
+      height: 170px;
+      padding-top: 20px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+
+    .bars__col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      height: 100%;
+      justify-content: flex-end;
+    }
+
+    .bars__bar {
+      width: 100%;
+      max-width: 22px;
+      border-radius: 3px 3px 0 0;
+      background: linear-gradient(180deg, #2A835F 0%, #12544F 100%);
+      height: 0;
+      transition: height 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .bars__bar--warm {
+      background: linear-gradient(180deg, #C28C34 0%, #8B6B1F 100%);
+    }
+
+    .bars__label {
+      font-size: 0.58rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+    }
+
+    .bars__caption {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* SVG line chart */
+    .linechart {
+      width: 100%;
+      height: 220px;
+      display: block;
+    }
+
+    .linechart__grid {
+      stroke: rgba(9, 35, 40, 0.06);
+      stroke-width: 1;
+    }
+
+    .linechart__axis {
+      fill: #6b7c80;
+      font-size: 9px;
+      font-family: "Inter", sans-serif;
+    }
+
+    .linechart__line {
+      fill: none;
+      stroke: #12544F;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .linechart__line--alt {
+      fill: none;
+      stroke: #8BBB92;
+      stroke-width: 2;
+      stroke-dasharray: 3 4;
+      stroke-linecap: round;
+    }
+
+    .linechart__area {
+      fill: url(#areaGrad);
+      opacity: 0.55;
+    }
+
+    .linechart__dot {
+      fill: #12544F;
+      stroke: #fff;
+      stroke-width: 2;
+    }
+
+    .linechart__legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+    }
+
+    .linechart__legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .linechart__legend i {
+      width: 14px;
+      height: 2px;
+      border-radius: 999px;
+      background: #12544F;
+      display: inline-block;
+    }
+
+    .linechart__legend i.alt {
+      background: transparent;
+      border-top: 2px dashed #8BBB92;
+      height: 0;
+    }
+
+    /* Radial row */
+    .radials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .radial {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .radial svg {
+      width: 120px;
+      height: 120px;
+    }
+
+    .radial__track {
+      fill: none;
+      stroke: rgba(9, 35, 40, 0.08);
+      stroke-width: 8;
+    }
+
+    .radial__fill {
+      fill: none;
+      stroke: #12544F;
+      stroke-width: 8;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .radial__fill--warm {
+      stroke: #C28C34;
+    }
+
+    .radial__value {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.4rem;
+      fill: var(--deep);
+      font-weight: 400;
+    }
+
+    .radial__label {
+      font-size: 0.8rem;
+      color: var(--deep);
+      font-weight: 500;
+    }
+
+    .radial__sub {
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      max-width: 24ch;
+    }
+
+    /* Status grid — system health */
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .status-tile {
+      padding: 16px 16px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #fff;
+    }
+
+    .status-tile__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .status-tile__name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #12544F;
+    }
+
+    .status-tile__value {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.3rem;
+      color: var(--deep);
+      line-height: 1;
+    }
+
+    .status-tile__sub {
+      font-size: 0.74rem;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    /* Buttons */
+    .btn-adm {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      background: #12544F;
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid #12544F;
+      cursor: pointer;
+      transition: background .35s ease, border-color .35s ease, transform .35s ease;
+      text-decoration: none;
+    }
+
+    .btn-adm:hover {
+      background: #092328;
+      border-color: #092328;
+      transform: translateY(-2px);
+    }
+
+    .btn-adm i {
+      font-size: 0.68rem;
+      transition: transform .35s ease;
+    }
+
+    .btn-adm:hover i {
+      transform: translateX(4px);
+    }
+
+    .btn-adm--ghost {
+      background: transparent;
+      color: var(--deep);
+      border-color: var(--line);
+    }
+
+    .btn-adm--ghost:hover {
+      background: #12544F;
+      border-color: #12544F;
+      color: #fff;
+    }
+
+    .btn-adm--warn {
+      background: transparent;
+      color: #B04A3A;
+      border-color: rgba(176, 74, 58, 0.35);
+    }
+
+    .btn-adm--warn:hover {
+      background: #B04A3A;
+      border-color: #B04A3A;
+      color: #fff;
+    }
+
+    /* Note strip */
+    .note-strip {
+      display: flex;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(18, 84, 79, 0.08);
+      border: 1px solid rgba(18, 84, 79, 0.2);
+      border-radius: 6px;
+      font-size: 0.86rem;
+      color: var(--deep);
+      line-height: 1.6;
+      margin-top: 18px;
+    }
+
+    .note-strip i {
+      color: #12544F;
+      font-size: 0.9rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .note-strip p {
+      margin: 0;
+      max-width: none;
+    }
+
+    /* ------------------------------------------------------------
+   MOBILE HAMBURGER OVERLAY — full viewport (AGENTS.md §6)
+   ------------------------------------------------------------ */
+    .adm-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #12544F;
+      color: #F4F1EA;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 24px 40px;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .adm-overlay[hidden] {
+      display: none;
+    }
+
+    .adm-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .adm-overlay__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .adm-overlay__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .adm-overlay__brand img {
+      width: 130px;
+      height: 48px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .adm-overlay__brand span {
+      display: none !important;
+    }
+
+    .adm-overlay__close {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #F4F1EA;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background .35s ease, transform .35s ease;
+    }
+
+    .adm-overlay__close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(90deg);
+    }
+
+    .adm-overlay__nav {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .adm-overlay__nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(6px, 1.6vh, 16px);
+      text-align: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .adm-overlay__nav a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.4rem, 6.4vw, 2.4rem);
+      line-height: 1.2;
+      color: rgba(255, 255, 255, 0.72);
+      transition: color .4s ease;
+      padding-bottom: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .adm-overlay__nav a i {
+      font-size: 0.72em;
+      color: rgba(139, 187, 146, 0.8);
+      transition: color .4s ease;
+    }
+
+    .adm-overlay__nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #8BBB92;
+      transform: translateX(-50%);
+      transition: width .5s ease;
+    }
+
+    .adm-overlay__nav a:hover {
+      color: #F4F1EA;
+    }
+
+    .adm-overlay__nav a:hover i {
+      color: #8BBB92;
+    }
+
+    .adm-overlay__nav a.is-active {
+      color: #F4F1EA;
+    }
+
+    .adm-overlay__nav a.is-active i {
+      color: #8BBB92;
+    }
+
+    .adm-overlay__nav a.is-active::after {
+      width: 100%;
+    }
+
+    .adm-overlay__foot {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 24px;
+      flex-shrink: 0;
+      max-width: 400px;
+      margin-inline: auto;
+      width: 100%;
+    }
+
+    .adm-overlay__profile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .adm-overlay__profile .adm-profile__avatar {
+      display: grid;
+    }
+
+    .adm-overlay__profile .adm-profile__info strong {
+      color: #F4F1EA;
+    }
+
+    .adm-overlay__profile .adm-profile__info span {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .adm-overlay__logout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: #092328;
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid #092328;
+      cursor: pointer;
+      transition: background .35s ease;
+    }
+
+    .adm-overlay__logout:hover {
+      background: #2A835F;
+      border-color: #2A835F;
+    }
+
+    /* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+    @media (max-width: 1180px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .row-2,
+      .row-2--flip {
+        grid-template-columns: 1fr;
+      }
+
+      .row-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .adm-main {
+        padding: 108px 28px 60px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .adm-header {
+        height: 68px;
+        padding: 0 18px;
+        gap: 14px;
+      }
+
+      .adm-header__brand-name {
+        display: none;
+      }
+
+      .adm-header__role {
+        display: none;
+      }
+
+      /* ADMIN chip hidden */
+      .adm-header__email {
+        display: none;
+      }
+
+      /* Email hidden */
+      .adm-header__profile {
+        display: none;
+      }
+
+      /* Profile icon hidden */
+      .adm-header__welcome p {
+        display: none;
+      }
+
+      .adm-header__menu-btn {
+        display: grid;
+      }
+
+      .adm-sidebar {
+        display: none;
+      }
+
+      .adm-main {
+        margin-left: 0;
+        padding: 92px 18px 50px;
+      }
+
+      .panel-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .kpi-card {
+        padding: 16px;
+      }
+
+      .radials {
+        grid-template-columns: 1fr;
+      }
+
+      .status-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bars {
+        gap: 5px;
+      }
+
+      .bars__label {
+        font-size: 0.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .adm-panel.is-active {
+        animation: none;
+      }
+
+      .progress__fill,
+      .cap__fill,
+      .bars__bar,
+      .radial__fill {
+        transition: none;
+      }
+
+      .btn-adm {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="admin">
+
+  <!-- ================= FIXED HEADER ================= -->
+  <header class="adm-header" id="admHeader">
+    <div class="adm-header__left">
+      <a class="adm-header__brand" href="#" id="logoReset" aria-label="Stackly admin — reset to first section">
+        <img src="../logo.webp" alt="Stackly logo">
+        <span class="adm-header__brand-name">Stackly</span>
+      </a>
+      <span class="adm-header__role" aria-label="Signed in as Admin">ADMIN</span>
+    </div>
+
+    <div class="adm-header__welcome">
+      <h1 id="welcomeHello">Hello admin</h1>
+      <p id="welcomeSub">Operations console · Signed in as Admin</p>
+    </div>
+
+    <div class="adm-header__right">
+      <span class="adm-header__email" id="headerEmail">—</span>
+      <a class="adm-header__profile" href="#profile" id="headerProfile" aria-label="Open account">
+        <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+      </a>
+      <button class="adm-header__menu-btn" id="menuBtn" type="button" aria-label="Open admin menu" aria-expanded="false"
+        aria-controls="admOverlay">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= FIXED SIDEBAR (desktop only) ================= -->
+  <aside class="adm-sidebar" id="sidebar" aria-label="Admin sections">
+    <p class="adm-sidebar__label">Operations console</p>
+
+    <ul class="adm-nav" role="tablist" aria-label="Admin sections">
+      <li role="presentation">
+        <button type="button" role="tab" data-nav="overview" class="is-active" aria-selected="true"
+          aria-controls="panel-overview" id="tab-overview">
+          <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+          <span>Overview</span>
+        </button>
+      </li>
+      <li role="presentation">
+        <button type="button" role="tab" data-nav="destinations" aria-selected="false"
+          aria-controls="panel-destinations" id="tab-destinations" tabindex="-1">
+          <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+          <span>Destinations</span>
+        </button>
+      </li>
+      <li role="presentation">
+        <button type="button" role="tab" data-nav="reservations" aria-selected="false"
+          aria-controls="panel-reservations" id="tab-reservations" tabindex="-1">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+          <span>Reservations</span>
+        </button>
+      </li>
+      <li role="presentation">
+        <button type="button" role="tab" data-nav="sustainability" aria-selected="false"
+          aria-controls="panel-sustainability" id="tab-sustainability" tabindex="-1">
+          <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+          <span>Sustainability</span>
+        </button>
+      </li>
+      <li role="presentation">
+        <button type="button" role="tab" data-nav="operations" aria-selected="false" aria-controls="panel-operations"
+          id="tab-operations" tabindex="-1">
+          <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+          <span>Operations</span>
+        </button>
+      </li>
+    </ul>
+
+    <div class="adm-profile">
+      <span class="adm-profile__avatar" aria-hidden="true">
+        <i class="fa-solid fa-user-shield"></i>
+      </span>
+      <div class="adm-profile__info">
+        <strong id="sideCardName">Admin</strong>
+        <span id="sideCardEmail">—</span>
+      </div>
+    </div>
+
+    <button type="button" class="adm-logout" id="logoutBtn">
+      <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+      <span>Logout</span>
+    </button>
+  </aside>
+
+  <!-- ================= MAIN — only this scrolls ================= -->
+  <main class="adm-main" id="admMain">
+
+    <!-- ==================================================
+       PANEL 1 — OVERVIEW
+       ================================================== -->
+    <section class="adm-panel is-active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview"
+      tabindex="-1">
+
+      <div class="panel-head">
+        <div class="panel-head__copy">
+          <p class="panel-head__eyebrow">01 · Overview</p>
+          <h2 class="panel-head__title">Everything happening across Stackly, at a glance</h2>
+          <p class="panel-head__lead">
+            Operational snapshot across all regions. Not a marketing dashboard —
+            a working view of departures, guides, permits and capacity.
+          </p>
+        </div>
+        <a class="btn-adm" href="../404.html">
+          Export report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- KPI row -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-calendar-check"></i>Active departures</span>
+          <span class="kpi-card__value" data-count="14">0</span>
+          <p class="kpi-card__sub">Across all regions, this month.</p>
+          <span class="kpi-card__delta kpi-card__delta--up">+3</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-users"></i>Travellers booked</span>
+          <span class="kpi-card__value" data-count="98">0</span>
+          <p class="kpi-card__sub">Total seat occupancy this month.</p>
+          <span class="kpi-card__delta kpi-card__delta--up">+12</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-user-tie"></i>Guides deployed</span>
+          <span class="kpi-card__value" data-count="11">0</span>
+          <p class="kpi-card__sub">Field staff currently assigned.</p>
+          <span class="kpi-card__delta kpi-card__delta--flat">0</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-triangle-exclamation"></i>Open incidents</span>
+          <span class="kpi-card__value" data-count="2">0</span>
+          <p class="kpi-card__sub">Requires attention this week.</p>
+          <span class="kpi-card__delta kpi-card__delta--down">+1</span>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Bookings &amp; revenue trend</h3>
+            <span class="card__note">Last 12 months</span>
+          </div>
+
+          <svg class="linechart" viewBox="0 0 640 220" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#12544F" stop-opacity="0.22" />
+                <stop offset="100%" stop-color="#12544F" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+
+            <!-- Grid -->
+            <line class="linechart__grid" x1="40" y1="30" x2="620" y2="30" />
+            <line class="linechart__grid" x1="40" y1="75" x2="620" y2="75" />
+            <line class="linechart__grid" x1="40" y1="120" x2="620" y2="120" />
+            <line class="linechart__grid" x1="40" y1="165" x2="620" y2="165" />
+            <line class="linechart__grid" x1="40" y1="190" x2="620" y2="190" />
+
+            <!-- Y-axis labels -->
+            <text class="linechart__axis" x="10" y="34">12k</text>
+            <text class="linechart__axis" x="10" y="79">9k</text>
+            <text class="linechart__axis" x="10" y="124">6k</text>
+            <text class="linechart__axis" x="10" y="169">3k</text>
+            <text class="linechart__axis" x="24" y="194">0</text>
+
+            <!-- Area (revenue) -->
+            <path class="linechart__area"
+              d="M 40 155 L 90 140 L 140 132 L 190 118 L 240 100 L 290 84 L 340 78 L 390 62 L 440 48 L 490 40 L 540 44 L 590 32 L 620 30 L 620 190 L 40 190 Z" />
+
+            <!-- Line (revenue) -->
+            <path class="linechart__line"
+              d="M 40 155 L 90 140 L 140 132 L 190 118 L 240 100 L 290 84 L 340 78 L 390 62 L 440 48 L 490 40 L 540 44 L 590 32 L 620 30" />
+
+            <!-- Line (bookings alt) -->
+            <path class="linechart__line--alt"
+              d="M 40 168 L 90 158 L 140 152 L 190 148 L 240 136 L 290 122 L 340 116 L 390 100 L 440 92 L 490 82 L 540 80 L 590 74 L 620 66" />
+
+            <!-- Last point dot -->
+            <circle class="linechart__dot" cx="620" cy="30" r="3.5" />
+          </svg>
+
+          <div class="linechart__legend">
+            <span><i></i>Revenue</span>
+            <span><i class="alt"></i>Bookings</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">System status</h3>
+            <span class="card__note">Live · today</span>
+          </div>
+
+          <div class="status-grid">
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Bookings</span>
+                <span class="pill pill--ok">OK</span>
+              </div>
+              <span class="status-tile__value">100%</span>
+              <p class="status-tile__sub">All seats synced across regions.</p>
+            </div>
+
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Permits</span>
+                <span class="pill pill--pending">Pending</span>
+              </div>
+              <span class="status-tile__value">4</span>
+              <p class="status-tile__sub">Awaiting forest office response.</p>
+            </div>
+
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Guides</span>
+                <span class="pill pill--ok">OK</span>
+              </div>
+              <span class="status-tile__value">11/12</span>
+              <p class="status-tile__sub">One guide on rotation.</p>
+            </div>
+
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Weather</span>
+                <span class="pill pill--info">Monitoring</span>
+              </div>
+              <span class="status-tile__value">Watch</span>
+              <p class="status-tile__sub">Heavy showers expected in Kabini.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-2--flip row-2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Region performance</h3>
+            <span class="card__note">Occupancy this month</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Western Ghats</span>
+              <span class="progress__value">92%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="92"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Kabini Basin</span>
+              <span class="progress__value">78%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="78"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Nilgiri Hills</span>
+              <span class="progress__value">64%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="64"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Silent Valley</span>
+              <span class="progress__value">41%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--alert" data-fill="41"></span></div>
+          </div>
+
+          <a class="btn-adm btn-adm--ghost" href="../404.html" style="margin-top:18px;">
+            Open destinations <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Recent activity</h3>
+            <span class="card__note">Last 24 hours</span>
+          </div>
+
+          <ul class="feed">
+            <li class="feed__item">
+              <span class="feed__icon"><i class="fa-solid fa-calendar-plus" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">New reservation · Kabini Basin</p>
+                <p class="feed__meta">Group of 6 · Dawn Wildlife Drive · Aug 12</p>
+              </div>
+              <span class="feed__time">12m ago</span>
+            </li>
+
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--teal"><i class="fa-solid fa-id-card-clip"
+                  aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Permit approved · Western Ghats</p>
+                <p class="feed__meta">Forest office · Ridge Walk route · Aug 12–16</p>
+              </div>
+              <span class="feed__time">1h ago</span>
+            </li>
+
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--warm"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Guide rotation updated · Nilgiri Hills</p>
+                <p class="feed__meta">Arjun K. → reassigned to Group B, Aug 14</p>
+              </div>
+              <span class="feed__time">3h ago</span>
+            </li>
+
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--alert"><i class="fa-solid fa-cloud-showers-heavy"
+                  aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Weather watch · Kabini Basin</p>
+                <p class="feed__meta">Heavy rain expected Aug 13 · monitor river levels</p>
+              </div>
+              <span class="feed__time">5h ago</span>
+            </li>
+
+            <li class="feed__item">
+              <span class="feed__icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Payment received · Silent Valley</p>
+                <p class="feed__meta">Deposit confirmation · Group 4 travellers</p>
+              </div>
+              <span class="feed__time">8h ago</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================
+       PANEL 2 — DESTINATIONS
+       ================================================== -->
+    <section class="adm-panel" id="panel-destinations" role="tabpanel" aria-labelledby="tab-destinations" tabindex="-1">
+
+      <div class="panel-head">
+        <div class="panel-head__copy">
+          <p class="panel-head__eyebrow">02 · Destinations</p>
+          <h2 class="panel-head__title">Regions we run, their capacity and their season</h2>
+          <p class="panel-head__lead">
+            Every region we operate in, with seasonal windows, group caps and current load.
+          </p>
+        </div>
+        <a class="btn-adm" href="../404.html">
+          Add region <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-globe"></i>Active regions</span>
+          <span class="kpi-card__value" data-count="4">0</span>
+          <p class="kpi-card__sub">Currently open for bookings.</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-user-group"></i>Avg. group size</span>
+          <span class="kpi-card__value" data-count="7">0</span>
+          <p class="kpi-card__sub">Across all active departures.</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-bed"></i>Eco stays live</span>
+          <span class="kpi-card__value" data-count="9">0</span>
+          <p class="kpi-card__sub">Partner-run camps and cabins.</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-snowflake"></i>Seasonal closures</span>
+          <span class="kpi-card__value" data-count="1">0</span>
+          <p class="kpi-card__sub">Closed for breeding window.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px;">
+        <div class="card__head">
+          <h3 class="card__title">Region capacity overview</h3>
+          <span class="card__note">Current seasonal load</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Season</th>
+                <th>Group cap</th>
+                <th style="min-width:200px;">Occupancy</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Western Ghats</strong></td>
+                <td>Sep–Nov</td>
+                <td class="num">12</td>
+                <td>
+                  <div class="cap">
+                    <div class="cap__bar"><span class="cap__fill" data-fill="92"></span></div>
+                    <span class="cap__val">92%</span>
+                  </div>
+                </td>
+                <td><span class="pill pill--ok">Open</span></td>
+              </tr>
+              <tr>
+                <td><strong>Kabini Basin</strong></td>
+                <td>Mar–May</td>
+                <td class="num">10</td>
+                <td>
+                  <div class="cap">
+                    <div class="cap__bar"><span class="cap__fill" data-fill="78"></span></div>
+                    <span class="cap__val">78%</span>
+                  </div>
+                </td>
+                <td><span class="pill pill--ok">Open</span></td>
+              </tr>
+              <tr>
+                <td><strong>Nilgiri Hills</strong></td>
+                <td>Dec–Feb</td>
+                <td class="num">10</td>
+                <td>
+                  <div class="cap">
+                    <div class="cap__bar"><span class="cap__fill cap__fill--warm" data-fill="64"></span></div>
+                    <span class="cap__val">64%</span>
+                  </div>
+                </td>
+                <td><span class="pill pill--ok">Open</span></td>
+              </tr>
+              <tr>
+                <td><strong>Silent Valley</strong></td>
+                <td>Sep–Nov</td>
+                <td class="num">8</td>
+                <td>
+                  <div class="cap">
+                    <div class="cap__bar"><span class="cap__fill cap__fill--alert" data-fill="41"></span></div>
+                    <span class="cap__val">41%</span>
+                  </div>
+                </td>
+                <td><span class="pill pill--pending">Limited</span></td>
+              </tr>
+              <tr>
+                <td><strong>Coastal belt</strong></td>
+                <td>Post-monsoon</td>
+                <td class="num">10</td>
+                <td>
+                  <div class="cap">
+                    <div class="cap__bar"><span class="cap__fill cap__fill--alert" data-fill="0"></span></div>
+                    <span class="cap__val">—</span>
+                  </div>
+                </td>
+                <td><span class="pill pill--paused">Closed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Departures by region</h3>
+            <span class="card__note">Last 12 months</span>
+          </div>
+
+          <div class="bars" role="img" aria-label="Bar chart showing departures by region over 12 months">
+            <div class="bars__col"><span class="bars__bar" data-h="42"></span><span class="bars__label">O</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="58"></span><span class="bars__label">N</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="74"></span><span class="bars__label">D</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="62"></span><span class="bars__label">J</span></div>
+            <div class="bars__col"><span class="bars__bar bars__bar--warm" data-h="38"></span><span
+                class="bars__label">F</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="86"></span><span class="bars__label">M</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="72"></span><span class="bars__label">A</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="48"></span><span class="bars__label">M</span></div>
+            <div class="bars__col"><span class="bars__bar bars__bar--warm" data-h="36"></span><span
+                class="bars__label">J</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="68"></span><span class="bars__label">J</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="92"></span><span class="bars__label">A</span></div>
+            <div class="bars__col"><span class="bars__bar" data-h="80"></span><span class="bars__label">S</span></div>
+          </div>
+          <p class="bars__caption">Departures peak in March and August–September.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Region health</h3>
+            <span class="card__note">Sustainability signals</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Trail wear within limits</span>
+              <span class="progress__value">92%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="92"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Waste compliance</span>
+              <span class="progress__value">100%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="100"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Seasonal routing respected</span>
+              <span class="progress__value">100%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="100"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Local hire rate</span>
+              <span class="progress__value">88%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="88"></span></div>
+          </div>
+
+          <a class="btn-adm btn-adm--ghost" href="../404.html" style="margin-top:16px;">
+            Open sustainability <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================
+       PANEL 3 — RESERVATIONS
+       ================================================== -->
+    <section class="adm-panel" id="panel-reservations" role="tabpanel" aria-labelledby="tab-reservations" tabindex="-1">
+
+      <div class="panel-head">
+        <div class="panel-head__copy">
+          <p class="panel-head__eyebrow">03 · Reservations</p>
+          <h2 class="panel-head__title">Every reservation, from enquiry to confirmation</h2>
+          <p class="panel-head__lead">
+            Pipeline, confirmations and cancellations in a single operational view.
+          </p>
+        </div>
+        <a class="btn-adm" href="../404.html">
+          Open all bookings <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-hourglass-start"></i>Pending</span>
+          <span class="kpi-card__value" data-count="7">0</span>
+          <p class="kpi-card__sub">Awaiting deposit or confirmation.</p>
+          <span class="kpi-card__delta kpi-card__delta--up">+2</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-circle-check"></i>Confirmed</span>
+          <span class="kpi-card__value" data-count="21">0</span>
+          <p class="kpi-card__sub">Fully booked and deposit-paid.</p>
+          <span class="kpi-card__delta kpi-card__delta--flat">0</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-circle-xmark"></i>Cancelled</span>
+          <span class="kpi-card__value" data-count="3">0</span>
+          <p class="kpi-card__sub">Cancelled this month.</p>
+          <span class="kpi-card__delta kpi-card__delta--down">+1</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-indian-rupee-sign"></i>Revenue (MTD)</span>
+          <span class="kpi-card__value">₹—</span>
+          <p class="kpi-card__sub">Month-to-date confirmed revenue.</p>
+          <span class="kpi-card__delta kpi-card__delta--up">+9%</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px;">
+        <div class="card__head">
+          <h3 class="card__title">Upcoming reservations</h3>
+          <span class="card__note">Next 14 days</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Traveller</th>
+                <th>Region</th>
+                <th>Departure</th>
+                <th>Group</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#RV-2491</strong></td>
+                <td>—</td>
+                <td>Western Ghats</td>
+                <td>12 Aug 2026</td>
+                <td class="num">6</td>
+                <td><span class="pill pill--ok">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#RV-2490</strong></td>
+                <td>—</td>
+                <td>Kabini Basin</td>
+                <td>13 Aug 2026</td>
+                <td class="num">4</td>
+                <td><span class="pill pill--pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td><strong>#RV-2489</strong></td>
+                <td>—</td>
+                <td>Nilgiri Hills</td>
+                <td>14 Aug 2026</td>
+                <td class="num">8</td>
+                <td><span class="pill pill--ok">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#RV-2488</strong></td>
+                <td>—</td>
+                <td>Silent Valley</td>
+                <td>16 Aug 2026</td>
+                <td class="num">5</td>
+                <td><span class="pill pill--pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td><strong>#RV-2487</strong></td>
+                <td>—</td>
+                <td>Western Ghats</td>
+                <td>18 Aug 2026</td>
+                <td class="num">10</td>
+                <td><span class="pill pill--ok">Confirmed</span></td>
+              </tr>
+              <tr>
+                <td><strong>#RV-2486</strong></td>
+                <td>—</td>
+                <td>Kabini Basin</td>
+                <td>20 Aug 2026</td>
+                <td class="num">3</td>
+                <td><span class="pill pill--alert">Cancelled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row-3">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Confirmation rate</h3>
+          </div>
+          <div class="radials" style="grid-template-columns:1fr;">
+            <div class="radial">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="radial__track" cx="60" cy="60" r="50" />
+                <circle class="radial__fill" cx="60" cy="60" r="50" data-r="50" data-pct="82" stroke-dasharray="314.16"
+                  stroke-dashoffset="314.16" />
+                <text class="radial__value" x="60" y="58" text-anchor="middle" dominant-baseline="middle">82%</text>
+                <text x="60" y="76" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#6b7c80"
+                  font-family="Inter, sans-serif">Confirmed</text>
+              </svg>
+              <span class="radial__label">Enquiries → confirmed</span>
+              <span class="radial__sub">Share of enquiries that convert to confirmed bookings.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Cancellations this month</h3>
+          </div>
+          <ul class="feed">
+            <li class="feed__item" style="padding-top:0;">
+              <span class="feed__icon feed__icon--alert"><i class="fa-solid fa-circle-xmark"
+                  aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">#RV-2486</p>
+                <p class="feed__meta">Traveller request · refunded</p>
+              </div>
+              <span class="feed__time">Aug 03</span>
+            </li>
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--warm"><i class="fa-solid fa-cloud-rain" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">#RV-2471</p>
+                <p class="feed__meta">Weather · rescheduled</p>
+              </div>
+              <span class="feed__time">Aug 06</span>
+            </li>
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--warm"><i class="fa-solid fa-user-minus" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">#RV-2465</p>
+                <p class="feed__meta">Group size dropped below minimum</p>
+              </div>
+              <span class="feed__time">Aug 09</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Pipeline by stage</h3>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Enquiry</span>
+              <span class="progress__value">18</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="18"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Proposal sent</span>
+              <span class="progress__value">9</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="9"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Deposit paid</span>
+              <span class="progress__value">21</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="21"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Final payment</span>
+              <span class="progress__value">6</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="6"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Travelled</span>
+              <span class="progress__value">24</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="24"></span></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================
+       PANEL 4 — SUSTAINABILITY
+       ================================================== -->
+    <section class="adm-panel" id="panel-sustainability" role="tabpanel" aria-labelledby="tab-sustainability"
+      tabindex="-1">
+
+      <div class="panel-head">
+        <div class="panel-head__copy">
+          <p class="panel-head__eyebrow">04 · Sustainability</p>
+          <h2 class="panel-head__title">What we measure — and what we honestly don't</h2>
+          <p class="panel-head__lead">
+            Compliance signals, local hire and waste tracking. No unsupported carbon
+            claims, no invented certifications.
+          </p>
+        </div>
+        <a class="btn-adm" href="../404.html">
+          Export metrics <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-users"></i>Local hire rate</span>
+          <span class="kpi-card__value" data-count="88">0</span>
+          <p class="kpi-card__sub">Percent of guides sourced locally.</p>
+          <span class="kpi-card__delta kpi-card__delta--up">+3</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-recycle"></i>Waste compliance</span>
+          <span class="kpi-card__value" data-count="100">0</span>
+          <p class="kpi-card__sub">Camp waste carried out, verified.</p>
+          <span class="kpi-card__delta kpi-card__delta--flat">0</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-calendar-week"></i>Seasonal routing</span>
+          <span class="kpi-card__value" data-count="100">0</span>
+          <p class="kpi-card__sub">Routes respect breeding windows.</p>
+          <span class="kpi-card__delta kpi-card__delta--flat">0</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-hourglass-half"></i>Carbon accounting</span>
+          <span class="kpi-card__value">—</span>
+          <p class="kpi-card__sub">Not yet measured credibly.</p>
+          <span class="kpi-card__delta kpi-card__delta--down">Open</span>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Local hire by region</h3>
+            <span class="card__note">Percent from region</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Western Ghats</span>
+              <span class="progress__value">94%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="94"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Kabini Basin</span>
+              <span class="progress__value">89%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="89"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Nilgiri Hills</span>
+              <span class="progress__value">82%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="82"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Silent Valley</span>
+              <span class="progress__value">78%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="78"></span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Compliance status</h3>
+            <span class="card__note">This season</span>
+          </div>
+
+          <div class="status-grid">
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Waste logs</span>
+                <span class="pill pill--ok">OK</span>
+              </div>
+              <span class="status-tile__value">100%</span>
+              <p class="status-tile__sub">All camps logged on exit.</p>
+            </div>
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Breeding window</span>
+                <span class="pill pill--ok">Respected</span>
+              </div>
+              <span class="status-tile__value">0</span>
+              <p class="status-tile__sub">Departures run in closed season.</p>
+            </div>
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Water use</span>
+                <span class="pill pill--pending">Tracking</span>
+              </div>
+              <span class="status-tile__value">—</span>
+              <p class="status-tile__sub">Estimates only, not verified.</p>
+            </div>
+            <div class="status-tile">
+              <div class="status-tile__head">
+                <span class="status-tile__name">Carbon</span>
+                <span class="pill pill--alert">Unmeasured</span>
+              </div>
+              <span class="status-tile__value">—</span>
+              <p class="status-tile__sub">No credible method yet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__head">
+          <h3 class="card__title">Regional contribution</h3>
+          <span class="card__note">Journey revenue into region, this season</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="adm-table">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Guides paid locally</th>
+                <th>Hosts engaged</th>
+                <th>Avg. local spend</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Western Ghats</strong></td>
+                <td class="num">18</td>
+                <td class="num">6</td>
+                <td class="num">72%</td>
+                <td><span class="pill pill--ok">Strong</span></td>
+              </tr>
+              <tr>
+                <td><strong>Kabini Basin</strong></td>
+                <td class="num">12</td>
+                <td class="num">5</td>
+                <td class="num">68%</td>
+                <td><span class="pill pill--ok">Strong</span></td>
+              </tr>
+              <tr>
+                <td><strong>Nilgiri Hills</strong></td>
+                <td class="num">9</td>
+                <td class="num">4</td>
+                <td class="num">61%</td>
+                <td><span class="pill pill--info">Stable</span></td>
+              </tr>
+              <tr>
+                <td><strong>Silent Valley</strong></td>
+                <td class="num">5</td>
+                <td class="num">2</td>
+                <td class="num">54%</td>
+                <td><span class="pill pill--pending">Growing</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-strip" style="margin-top:18px;">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <p>These figures reflect what we actually track. Where a metric isn't listed — carbon, water — we don't claim
+            it.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================
+       PANEL 5 — OPERATIONS
+       ================================================== -->
+    <section class="adm-panel" id="panel-operations" role="tabpanel" aria-labelledby="tab-operations" tabindex="-1">
+
+      <div class="panel-head">
+        <div class="panel-head__copy">
+          <p class="panel-head__eyebrow">05 · Operations</p>
+          <h2 class="panel-head__title">Guides, permits, equipment and incident log</h2>
+          <p class="panel-head__lead">
+            The working layer — everything that has to be lined up before a departure
+            can actually leave.
+          </p>
+        </div>
+        <a class="btn-adm" href="../404.html">
+          Open task list <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-user-tie"></i>Guides on roster</span>
+          <span class="kpi-card__value" data-count="12">0</span>
+          <p class="kpi-card__sub">Available across all regions.</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-id-card-clip"></i>Permits active</span>
+          <span class="kpi-card__value" data-count="8">0</span>
+          <p class="kpi-card__sub">Approved and valid.</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-toolbox"></i>Equipment ready</span>
+          <span class="kpi-card__value" data-count="31">0</span>
+          <p class="kpi-card__sub">Camps, kayaks, safety gear.</p>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-card__label"><i class="fa-solid fa-triangle-exclamation"></i>Open incidents</span>
+          <span class="kpi-card__value" data-count="2">0</span>
+          <p class="kpi-card__sub">Both non-critical, being tracked.</p>
+          <span class="kpi-card__delta kpi-card__delta--down">+1</span>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Guide roster</h3>
+            <span class="card__note">Current assignments</span>
+          </div>
+
+          <div class="table-wrap">
+            <table class="adm-table">
+              <thead>
+                <tr>
+                  <th>Guide</th>
+                  <th>Region</th>
+                  <th>Assignment</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Arjun K.</strong></td>
+                  <td>Western Ghats</td>
+                  <td>Ridge Walk · Aug 12</td>
+                  <td><span class="pill pill--ok">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Lakshmi R.</strong></td>
+                  <td>Nilgiri Hills</td>
+                  <td>Shola edge walks · Aug 14</td>
+                  <td><span class="pill pill--ok">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Kiran M.</strong></td>
+                  <td>Kabini Basin</td>
+                  <td>Dawn drives · Aug 13</td>
+                  <td><span class="pill pill--ok">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Meena S.</strong></td>
+                  <td>Kabini Basin</td>
+                  <td>Host-led days · Aug 15</td>
+                  <td><span class="pill pill--info">On duty</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Ravi P.</strong></td>
+                  <td>Western Ghats</td>
+                  <td>—</td>
+                  <td><span class="pill pill--paused">Rotating off</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Permits tracker</h3>
+            <span class="card__note">Next 30 days</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Western Ghats · Ridge Walk</span>
+              <span class="progress__value">Approved</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="100"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Kabini Basin · Wildlife drive</span>
+              <span class="progress__value">Pending</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="45"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Nilgiri Hills · Shola edge</span>
+              <span class="progress__value">Approved</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="100"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Silent Valley · Traverse</span>
+              <span class="progress__value">Review</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="30"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Coastal belt · Post-monsoon</span>
+              <span class="progress__value">Not filed</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--alert" data-fill="0"></span></div>
+          </div>
+
+          <a class="btn-adm btn-adm--ghost" href="../404.html" style="margin-top:16px;">
+            Open permit log <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="row-2--flip row-2">
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Equipment readiness</h3>
+            <span class="card__note">By category</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Tents &amp; camps</span>
+              <span class="progress__value">94%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="94"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Kayaks &amp; safety</span>
+              <span class="progress__value">88%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="88"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">First-aid kits</span>
+              <span class="progress__value">100%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill" data-fill="100"></span></div>
+          </div>
+          <div class="progress">
+            <div class="progress__row">
+              <span class="progress__label">Radios &amp; comms</span>
+              <span class="progress__value">72%</span>
+            </div>
+            <div class="progress__bar"><span class="progress__fill progress__fill--warm" data-fill="72"></span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h3 class="card__title">Incident log</h3>
+            <span class="card__note">Open &amp; recently closed</span>
+          </div>
+
+          <ul class="feed">
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--alert"><i class="fa-solid fa-cloud-showers-heavy"
+                  aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">River levels · Kabini Basin</p>
+                <p class="feed__meta">Monitoring · paddling departures may shift</p>
+              </div>
+              <span class="pill pill--alert">Open</span>
+            </li>
+            <li class="feed__item">
+              <span class="feed__icon feed__icon--warm"><i class="fa-solid fa-battery-quarter"
+                  aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Radio units · Western Ghats</p>
+                <p class="feed__meta">Two units awaiting replacement</p>
+              </div>
+              <span class="pill pill--pending">Tracking</span>
+            </li>
+            <li class="feed__item">
+              <span class="feed__icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Trail obstruction · Nilgiri Hills</p>
+                <p class="feed__meta">Cleared · no impact on departures</p>
+              </div>
+              <span class="pill pill--paused">Closed</span>
+            </li>
+            <li class="feed__item">
+              <span class="feed__icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+              <div class="feed__body">
+                <p class="feed__title">Permit discrepancy · Silent Valley</p>
+                <p class="feed__meta">Reconciled with forest office</p>
+              </div>
+              <span class="pill pill--paused">Closed</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note-strip">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+        <p>All operational actions — permits, rosters, equipment — are managed through the operations team. This view is
+          read-only.</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= MOBILE HAMBURGER OVERLAY (full screen) ================= -->
+  <div class="adm-overlay" id="admOverlay" role="dialog" aria-modal="true" aria-label="Admin menu" hidden>
+
+    <div class="adm-overlay__top">
+      <a class="adm-overlay__brand" href="#" id="overlayLogoReset" aria-label="Stackly admin — reset to first section">
+        <img src="../logo.webp" alt="Stackly logo">
+        <span>Stackly</span>
+      </a>
+      <button class="adm-overlay__close" id="overlayClose" type="button" aria-label="Close menu">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="adm-overlay__nav" aria-label="Admin sections">
+      <ul role="tablist">
+        <li role="presentation">
+          <a href="#overview" role="tab" data-nav="overview" class="is-active" aria-selected="true"
+            aria-controls="panel-overview">
+            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+            <span>Overview</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="#destinations" role="tab" data-nav="destinations" aria-selected="false"
+            aria-controls="panel-destinations">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            <span>Destinations</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="#reservations" role="tab" data-nav="reservations" aria-selected="false"
+            aria-controls="panel-reservations">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+            <span>Reservations</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="#sustainability" role="tab" data-nav="sustainability" aria-selected="false"
+            aria-controls="panel-sustainability">
+            <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+            <span>Sustainability</span>
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="#operations" role="tab" data-nav="operations" aria-selected="false" aria-controls="panel-operations">
+            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+            <span>Operations</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="adm-overlay__foot">
+      <div class="adm-overlay__profile">
+        <span class="adm-profile__avatar" aria-hidden="true">
+          <i class="fa-solid fa-user-shield"></i>
+        </span>
+        <div class="adm-profile__info">
+          <strong id="overlayName">Admin</strong>
+          <span id="overlayEmail">—</span>
+        </div>
+      </div>
+      <button type="button" class="adm-overlay__logout" id="overlayLogout">
+        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= GSAP ================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* =========================================================
+         IDENTITY
+         ========================================================= */
+      var storedEmail = "admin@stackly.example";
+      try {
+        storedEmail = localStorage.getItem("stackly_user_email") || storedEmail;
+      } catch (err) { /* storage unavailable */ }
+
+      var username = "admin";
+      if (storedEmail && storedEmail.indexOf("@") > 0) {
+        username = storedEmail.split("@")[0];
+      }
+      var prettyName = username.charAt(0).toUpperCase() + username.slice(1);
+
+      function setText(id, txt) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = txt;
+      }
+
+      setText("welcomeHello", "Hello " + username);
+      setText("headerEmail", storedEmail);
+      setText("sideCardName", prettyName);
+      setText("sideCardEmail", storedEmail);
+      setText("overlayName", prettyName);
+      setText("overlayEmail", storedEmail);
+
+      /* =========================================================
+         NAV SELECTOR
+         ========================================================= */
+      var navItems = document.querySelectorAll(
+        '.adm-nav button[data-nav], .adm-overlay__nav a[data-nav]'
+      );
+      var panels = document.querySelectorAll(".adm-panel");
+
+      function activatePanel(name, skipScroll) {
+        navItems.forEach(function (el) {
+          var on = el.getAttribute("data-nav") === name;
+          el.classList.toggle("is-active", on);
+          el.setAttribute("aria-selected", on ? "true" : "false");
+          if (el.tagName === "BUTTON") {
+            el.setAttribute("tabindex", on ? "0" : "-1");
+          }
+        });
+
+        var found = null;
+        panels.forEach(function (p) {
+          var id = p.id.replace("panel-", "");
+          var on = id === name;
+          p.classList.toggle("is-active", on);
+          if (on) found = p;
+        });
+
+        closeOverlay();
+        if (!skipScroll) {
+          window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+        }
+        if (found) animateCharts(found);
+        
+        if (window.location.hash !== "#" + name) {
+          history.replaceState(null, null, "#" + name);
+        }
+      }
+
+      navItems.forEach(function (item) {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+          activatePanel(item.getAttribute("data-nav"));
+        });
+
+        if (item.tagName === "BUTTON") {
+          item.addEventListener("keydown", function (e) {
+            var list = Array.prototype.slice.call(
+              document.querySelectorAll(".adm-nav button[data-nav]")
+            );
+            var i = list.indexOf(item);
+            if (e.key === "ArrowDown") {
+              e.preventDefault();
+              (list[i + 1] || list[0]).focus();
+              (list[i + 1] || list[0]).click();
+            } else if (e.key === "ArrowUp") {
+              e.preventDefault();
+              (list[i - 1] || list[list.length - 1]).focus();
+              (list[i - 1] || list[list.length - 1]).click();
+            }
+          });
+        }
+      });
+
+      /* Header profile → jump to account section (operations is closest) */
+      var headerProfile = document.getElementById("headerProfile");
+      if (headerProfile) {
+        headerProfile.addEventListener("click", function (e) {
+          e.preventDefault();
+          activatePanel("operations");
+        });
+      }
+
+      /* Logo reset (header) */
+      var logoReset = document.getElementById("logoReset");
+      if (logoReset) {
+        logoReset.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.reload();
+        });
+      }
+
+      /* Logo reset (overlay) */
+      var overlayLogoReset = document.getElementById("overlayLogoReset");
+      if (overlayLogoReset) {
+        overlayLogoReset.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.reload();
+        });
+      }
+
+      /* Logout */
+      function doLogout() {
+        try {
+          localStorage.removeItem("stackly_user_email");
+          localStorage.removeItem("stackly_user_role");
+        } catch (err) { /* ignore */ }
+        window.location.href = "login.html";
+      }
+      var logoutBtn = document.getElementById("logoutBtn");
+      var overlayLogout = document.getElementById("overlayLogout");
+      if (logoutBtn) logoutBtn.addEventListener("click", doLogout);
+      if (overlayLogout) overlayLogout.addEventListener("click", doLogout);
+
+      /* =========================================================
+         MOBILE HAMBURGER OVERLAY
+         ========================================================= */
+      var overlay = document.getElementById("admOverlay");
+      var menuBtn = document.getElementById("menuBtn");
+      var closeBtn = document.getElementById("overlayClose");
+
+      function lockScroll() { document.body.classList.add("is-locked"); }
+      function unlockScroll() { document.body.classList.remove("is-locked"); }
+
+      function openOverlay() {
+        overlay.hidden = false;
+        menuBtn.setAttribute("aria-expanded", "true");
+        menuBtn.setAttribute("aria-label", "Close admin menu");
+        lockScroll();
+
+        if (reduceMotion || typeof gsap === "undefined") {
+          overlay.classList.add("is-open");
+        } else {
+          overlay.classList.add("is-open");
+          gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.32, ease: "power2.out" });
+          gsap.fromTo(".adm-overlay__nav a",
+            { opacity: 0, x: -46 },
+            { opacity: 1, x: 0, duration: 0.55, stagger: 0.07, delay: 0.08, ease: "power4.out" }
+          );
+          gsap.fromTo(".adm-overlay__foot > *",
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, delay: 0.35, ease: "power3.out" }
+          );
+        }
+        closeBtn.focus();
+      }
+
+      function closeOverlay() {
+        if (!overlay || overlay.hidden) return;
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.setAttribute("aria-label", "Open admin menu");
+        unlockScroll();
+
+        if (reduceMotion || typeof gsap === "undefined") {
+          overlay.classList.remove("is-open");
+          overlay.hidden = true;
+        } else {
+          gsap.to(overlay, {
+            opacity: 0, duration: 0.25, ease: "power2.in",
+            onComplete: function () {
+              overlay.classList.remove("is-open");
+              overlay.hidden = true;
+              gsap.set(overlay, { clearProps: "opacity" });
+            }
+          });
+        }
+        if (menuBtn) menuBtn.focus();
+      }
+
+      if (menuBtn) {
+        menuBtn.addEventListener("click", function () {
+          if (menuBtn.getAttribute("aria-expanded") === "true") closeOverlay();
+          else openOverlay();
+        });
+      }
+      if (closeBtn) closeBtn.addEventListener("click", closeOverlay);
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && menuBtn && menuBtn.getAttribute("aria-expanded") === "true") {
+          closeOverlay();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 900 && menuBtn &&
+          menuBtn.getAttribute("aria-expanded") === "true") {
+          closeOverlay();
+        }
+      });
+
+      /* =========================================================
+         CHART ANIMATIONS
+         ========================================================= */
+      function animateCharts(scope) {
+        scope = scope || document;
+
+        scope.querySelectorAll(".progress__fill").forEach(function (fill) {
+          var pct = parseFloat(fill.getAttribute("data-fill")) || 0;
+          if (reduceMotion || typeof gsap === "undefined") {
+            fill.style.width = pct + "%";
+          } else {
+            gsap.fromTo(fill, { width: "0%" }, {
+              width: pct + "%", duration: 1.2, ease: "power3.out", delay: 0.15
+            });
+          }
+        });
+
+        scope.querySelectorAll(".cap__fill").forEach(function (fill) {
+          var pct = parseFloat(fill.getAttribute("data-fill")) || 0;
+          if (reduceMotion || typeof gsap === "undefined") {
+            fill.style.width = pct + "%";
+          } else {
+            gsap.fromTo(fill, { width: "0%" }, {
+              width: pct + "%", duration: 1.1, ease: "power3.out", delay: 0.1
+            });
+          }
+        });
+
+        scope.querySelectorAll(".bars__bar").forEach(function (bar) {
+          var h = parseFloat(bar.getAttribute("data-h")) || 0;
+          if (reduceMotion || typeof gsap === "undefined") {
+            bar.style.height = h + "%";
+          } else {
+            gsap.fromTo(bar, { height: "0%" }, {
+              height: h + "%", duration: 1.0, ease: "power3.out", delay: 0.1
+            });
+          }
+        });
+
+        scope.querySelectorAll(".radial__fill").forEach(function (ring) {
+          var r = parseFloat(ring.getAttribute("data-r")) || 50;
+          var pct = parseFloat(ring.getAttribute("data-pct")) || 0;
+          var circ = 2 * Math.PI * r;
+          var offset = circ - (pct / 100) * circ;
+          if (reduceMotion || typeof gsap === "undefined") {
+            ring.setAttribute("stroke-dashoffset", offset);
+          } else {
+            gsap.fromTo(ring, { strokeDashoffset: circ }, {
+              strokeDashoffset: offset, duration: 1.4, ease: "power3.out", delay: 0.2
+            });
+          }
+        });
+
+        scope.querySelectorAll("[data-count]").forEach(function (el) {
+          if (el.dataset.counted === "1") return;
+          var target = parseFloat(el.getAttribute("data-count")) || 0;
+          if (reduceMotion || typeof gsap === "undefined") {
+            el.textContent = target;
+            el.dataset.counted = "1";
+            return;
+          }
+          var obj = { val: 0 };
+          gsap.to(obj, {
+            val: target, duration: 1.4, ease: "power2.out",
+            onUpdate: function () { el.textContent = Math.round(obj.val); },
+            onComplete: function () {
+              el.textContent = target;
+              el.dataset.counted = "1";
+            }
+          });
+        });
+      }
+
+      animateCharts(document);
+
+      /* =========================================================
+         HASH ROUTING & SCROLL RESTORATION
+         ========================================================= */
+      if ("scrollRestoration" in history) history.scrollRestoration = "auto";
+      
+      var initialHash = window.location.hash.replace("#", "");
+      if (initialHash && document.getElementById("panel-" + initialHash)) {
+        activatePanel(initialHash, true);
+      }
+
+    })();
+  </script>
+
+</body>
+
+</html>

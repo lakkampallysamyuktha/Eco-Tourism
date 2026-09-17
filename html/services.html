@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092328">
+  <title>Services — Stackly Eco Tourism</title>
+  <meta name="description"
+    content="Guided nature journeys, wildlife expeditions, trekking, water days, eco stays and private journeys — eco-tourism experiences designed to travel lightly.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="../css/services.css">
+</head>
+
+<body>
+
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Stackly — home">
+        <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+        <span class="brand-name">Stackly</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="is-active" aria-current="page">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--outline btn--sm header-login" href="login.html">Login</a>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false"
+          aria-controls="navOverlay">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HAMBURGER OVERLAY ================= -->
+  <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+    <div class="nav-overlay__top">
+      <a class="brand brand--overlay" href="../index.html" aria-label="Stackly — home">
+        <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+        <span class="brand-name">Stackly</span>
+      </a>
+      <button class="nav-close" id="navClose" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="nav-overlay__nav" aria-label="Mobile">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="is-active" aria-current="page">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-overlay__foot">
+      <a class="btn btn--primary" href="login.html">Login</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="sv-hero">
+      <div class="sv-hero__media">
+        <img class="sv-hero__img"
+          src="../assets/images/img_039.webp"
+          alt="A mountain range at golden hour seen from a high ridge">
+        <div class="sv-hero__scrim"></div>
+      </div>
+
+      <div class="container sv-hero__inner">
+        <p class="eyebrow" data-hero="1">Services · Experiences</p>
+        <h1 class="sv-hero__title" data-hero="2">
+          Ways to <em>explore.</em>
+        </h1>
+        <p class="sv-hero__lead" data-hero="3">
+          Walks, paddles, wildlife mornings, hill stays and community-led days —
+          every experience is small, seasonal, and staffed by people from the region
+          it passes through.
+        </p>
+
+        <div class="sv-hero__actions" data-hero="4">
+          <a class="btn btn--primary" href="contact.html">Plan a Journey</a>
+          <a class="btn btn--ghost" href="about.html">Learn About Us</a>
+        </div>
+
+        <div class="sv-hero__meta" data-hero="5">
+          <div>
+            <span>Group size</span>
+            <p>Capped at twelve on any guided departure.</p>
+          </div>
+          <div>
+            <span>Guides</span>
+            <p>Local to the landscape, trained and paid fairly.</p>
+          </div>
+          <div>
+            <span>Timing</span>
+            <p>Built around season, water and light — not the calendar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+ 
+
+    <!-- ============ WILDLIFE EXPEDITIONS ============ -->
+    <section class="section section--cream" id="wildlife">
+      <div class="container">
+        <div class="sv-row sv-row--reverse">
+          <figure class="sv-row__media" data-anim="right">
+            <img src="../assets/images/img_029.webp"
+              alt="An elephant moving through tall grass at the edge of a forest" loading="lazy" decoding="async">
+          </figure>
+
+          <div class="sv-row__copy">
+           
+            <p class="sec-eyebrow" data-anim="left" data-delay="0.04">Wildlife Expeditions</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.08">
+              Watching <em>without following.</em>
+            </h2>
+            <p data-anim="left" data-delay="0.14">
+              Wildlife-focused departures that keep to established tracks and
+              respectful viewing distances. No luring, no calls, no handling —
+              because a quiet sighting is worth more than a guaranteed one.
+            </p>
+
+            <ul class="sv-row__list">
+              <li data-anim="left" data-delay="0.18">Dawn and dusk wildlife drives</li>
+              <li data-anim="left" data-delay="0.22">Birding-focused departures with a naturalist</li>
+              <li data-anim="left" data-delay="0.26">Multi-day wildlife corridors in small groups</li>
+            </ul>
+
+            <a class="link-arrow" href="../404.html" data-anim="left" data-delay="0.3">
+              Enquire about wildlife trips <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TREKKING & TRAILS ============ -->
+    <section class="section section--deep" id="trekking">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="sec-eyebrow" data-anim="left">Trekking &amp; Trails</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.06">
+              Long walks, <em>light loads.</em>
+            </h2>
+          </div>
+          <p class="sec-lead" data-anim="right" data-delay="0.1">
+            Multi-day treks with local guides and porters paid fairly. Routes are
+            planned around drainage, gradient and season — not distance on a map.
+          </p>
+        </div>
+
+        <div class="treks">
+          <a class="trek" href="../404.html" data-anim="left">
+            <span class="trek__num">01</span>
+            <h3>Ridge Walks</h3>
+            <p>Two to four days along forested ridges, camping in seasonal camps that pack down completely.</p>
+            <span class="trek__link">View route <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="trek" href="../404.html" data-anim="up" data-delay="0.08">
+            <span class="trek__num">02</span>
+            <h3>Valley Trails</h3>
+            <p>Lower-elevation walks through river valleys and hill villages, with homestay nights.</p>
+            <span class="trek__link">View route <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="trek" href="../404.html" data-anim="up" data-delay="0.16">
+            <span class="trek__num">03</span>
+            <h3>Day Hikes</h3>
+            <p>Single-day walks for travellers who want landscape without committing to a full trek.</p>
+            <span class="trek__link">View route <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="trek" href="../404.html" data-anim="right" data-delay="0.24">
+            <span class="trek__num">04</span>
+            <h3>Guided Night Walks</h3>
+            <p>Short evening walks with a naturalist, focused on the sounds and small life of the forest.</p>
+            <span class="trek__link">View route <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WATER & WILDERNESS (REDESIGNED) ============ -->
+    <section class="water-split" id="water">
+      <div class="water-split__media">
+        <img src="../assets/images/img_040.webp"
+          alt="A kayak gliding across still water at dawn" loading="lazy" decoding="async">
+      </div>
+
+      <div class="water-split__content">
+        <p class="sec-eyebrow" data-anim="left">Water &amp; Wilderness</p>
+        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+          Moving with <em>the water.</em>
+        </h2>
+        <p class="water-split__lead" data-anim="left" data-delay="0.12">
+          Paddles and gentle floats through wetlands, backwaters and river basins —
+          timed with the water itself, not with the clock. Slow, quiet, and limited
+          to small groups.
+        </p>
+
+        <div class="water-split__cards">
+          <div class="water-split__card" data-anim="up">
+            <span class="water-split__num">01</span>
+            <div class="water-split__text">
+              <h3>Kayak Days</h3>
+              <p>Half-day paddles on still water and slow rivers, guided by locals who know the channels.</p>
+            </div>
+          </div>
+          <div class="water-split__card" data-anim="up" data-delay="0.08">
+            <span class="water-split__num">02</span>
+            <div class="water-split__text">
+              <h3>River Basin Floats</h3>
+              <p>Quiet boat journeys through riverine forest, mostly at dawn and dusk.</p>
+            </div>
+          </div>
+          <div class="water-split__card" data-anim="up" data-delay="0.16">
+            <span class="water-split__num">03</span>
+            <div class="water-split__text">
+              <h3>Wild Swims</h3>
+              <p>Where it's safe and appropriate, a slow swim in a river pool — brief and unhurried.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ECO STAYS ============ -->
+    <section class="section section--cream" id="eco-stays">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="sec-eyebrow" data-anim="left">Eco Stays</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.06">
+              Places built <em>for their climate.</em>
+            </h2>
+          </div>
+          <p class="sec-lead" data-anim="right" data-delay="0.1">
+            Accommodation chosen for what it's made of, how it sits on the land,
+            and who runs it — not for how it photographs.
+          </p>
+        </div>
+
+        <div class="stays">
+          <a class="stay-card" href="../404.html" data-anim="left">
+            <figure class="stay-card__media">
+              <img src="../assets/images/img_041.webp"
+                alt="A timber eco-lodge with large windows overlooking a forest valley" loading="lazy" decoding="async">
+            </figure>
+            <div class="stay-card__body">
+              <h3>Forest Cabins</h3>
+              <p>Timber structures raised on stilts to leave the ground beneath them undisturbed.</p>
+              <span class="stay-card__link">Explore stays <i class="fa-solid fa-arrow-right"
+                  aria-hidden="true"></i></span>
+            </div>
+          </a>
+
+          <a class="stay-card" href="../404.html" data-anim="up" data-delay="0.08">
+            <figure class="stay-card__media">
+              <img src="../assets/images/img_042.webp"
+                alt="Canvas tents pitched in a clearing near a forest edge" loading="lazy" decoding="async">
+            </figure>
+            <div class="stay-card__body">
+              <h3>Tented Camps</h3>
+              <p>Seasonal camps that pack down completely, leaving no permanent footprint.</p>
+              <span class="stay-card__link">Explore stays <i class="fa-solid fa-arrow-right"
+                  aria-hidden="true"></i></span>
+            </div>
+          </a>
+
+          <a class="stay-card" href="../404.html" data-anim="right" data-delay="0.16">
+            <figure class="stay-card__media">
+              <img src="../assets/images/img_043.webp"
+                alt="A simple village home with a garden in front" loading="lazy" decoding="async">
+            </figure>
+            <div class="stay-card__body">
+              <h3>Homestays</h3>
+              <p>Family-run houses in hill villages, where the money stays in the village.</p>
+              <span class="stay-card__link">Explore stays <i class="fa-solid fa-arrow-right"
+                  aria-hidden="true"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMMUNITY EXPERIENCES ============ -->
+    <section class="section section--sand" id="community">
+      <div class="container">
+        <div class="community">
+          <div class="community__copy">
+            <p class="sec-eyebrow" data-anim="left">Community Experiences</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.06">
+              Days that stay <em>where they land.</em>
+            </h2>
+            <p data-anim="left" data-delay="0.12">
+              Cooking with host families, walking with shepherds, learning from
+              artisans who work in materials native to the region — experiences
+              designed so that travel revenue does more than pass through.
+            </p>
+
+            <ul class="community__list">
+              <li data-anim="left" data-delay="0.16">
+                <span>Village kitchens</span>
+                <p>Meals cooked with host families, using what the season provides.</p>
+              </li>
+              <li data-anim="left" data-delay="0.22">
+                <span>Craft workshops</span>
+                <p>Time with artisans working in bamboo, cane, and local textile traditions.</p>
+              </li>
+              <li data-anim="left" data-delay="0.28">
+                <span>Pastoral walks</span>
+                <p>Short walks alongside shepherds and farming families in hill country.</p>
+              </li>
+            </ul>
+
+            <a class="link-arrow" href="../404.html" data-anim="left" data-delay="0.32">
+              Explore community days <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <figure class="community__media" data-anim="right">
+            <img src="../assets/images/img_013.webp"
+              alt="A local craftsperson working with natural materials" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVATE JOURNEYS ============ -->
+    <section class="section section--cream" id="private">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="sec-eyebrow" data-anim="left">Private Journeys</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.06">
+              Trips built <em>around you.</em>
+            </h2>
+          </div>
+          <p class="sec-lead" data-anim="right" data-delay="0.1">
+            When the dates, the pace or the group is yours alone, we build the
+            itinerary from scratch — then adjust it as the season shifts.
+          </p>
+        </div>
+
+        <div class="private">
+          <a class="private__card" href="../404.html" data-anim="left">
+            <span class="private__num">01</span>
+            <h3>Family Journeys</h3>
+            <p>Shorter days, more rest, gentler routes. Built for mixed ages and mixed energy.</p>
+            <span class="private__link">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="private__card" href="../404.html" data-anim="up" data-delay="0.08">
+            <span class="private__num">02</span>
+            <h3>Slow Travel Itineraries</h3>
+            <p>Two nights minimum per stop. Fewer regions, more time inside each one.</p>
+            <span class="private__link">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="private__card" href="../404.html" data-anim="up" data-delay="0.16">
+            <span class="private__num">03</span>
+            <h3>Photography &amp; Field Trips</h3>
+            <p>Departures planned around light, not landmarks — for travellers working with a lens.</p>
+            <span class="private__link">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="private__card" href="../404.html" data-anim="right" data-delay="0.24">
+            <span class="private__num">04</span>
+            <h3>Milestone Trips</h3>
+            <p>Birthdays, retirements, reunions — quiet celebrations in places that can hold them.</p>
+            <span class="private__link">Enquire <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONSERVATION EXPERIENCES ============ -->
+    <section class="section section--deep" id="conservation">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <p class="sec-eyebrow" data-anim="left">Conservation Experiences</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.06">
+              Travel that <em>gives back attention.</em>
+            </h2>
+          </div>
+          <p class="sec-lead" data-anim="right" data-delay="0.1">
+            Experiences built around learning — not around pretending to do
+            conservation. We contribute to local work; we don't put travellers
+            in the middle of it.
+          </p>
+        </div>
+
+        <div class="conserve-exp">
+          <a class="conserve-exp__item" href="../404.html" data-anim="left">
+            <span class="conserve-exp__num">01</span>
+            <div>
+              <h3>Naturalist-led field days</h3>
+              <p>Days spent with a local naturalist, learning to read the forest — trails, calls, water, light.</p>
+            </div>
+            <span class="conserve-exp__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a class="conserve-exp__item" href="../404.html" data-anim="right" data-delay="0.06">
+            <span class="conserve-exp__num">02</span>
+            <div>
+              <h3>Birding with purpose</h3>
+              <p>Birding departures whose sightings contribute to regional records kept by local groups.</p>
+            </div>
+            <span class="conserve-exp__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a class="conserve-exp__item" href="../404.html" data-anim="left" data-delay="0.12">
+            <span class="conserve-exp__num">03</span>
+            <div>
+              <h3>Watershed and wetland walks</h3>
+              <p>Walks that follow water — springs, streams, tanks — to understand how the landscape holds together.</p>
+            </div>
+            <span class="conserve-exp__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+
+          <a class="conserve-exp__item" href="../404.html" data-anim="right" data-delay="0.18">
+            <span class="conserve-exp__num">04</span>
+            <div>
+              <h3>Community-led conservation visits</h3>
+              <p>Time with communities already doing the work — listening, not photographing.</p>
+            </div>
+            <span class="conserve-exp__arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+
+        <p class="conserve-exp__note" data-anim="up" data-delay="0.24">
+          These experiences don't claim measurable conservation outcomes. What they
+          do claim is careful attention, honest conversation, and revenue that
+          stays close to the region.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ BUILD YOUR JOURNEY ============ -->
+    <section class="section section--sand" id="build">
+      <div class="container">
+        <div class="build">
+          <div class="build__intro">
+            <p class="sec-eyebrow" data-anim="left">Build Your Journey</p>
+            <h2 class="sec-title" data-anim="left" data-delay="0.06">
+              Start with <em>a conversation.</em>
+            </h2>
+            <p data-anim="left" data-delay="0.12">
+              Tell us what you're after — the pace, the season, the group, the
+              landscape. We'll tell you honestly whether we're the right fit, and
+              what the region can comfortably host.
+            </p>
+          </div>
+
+          <div class="build__options">
+            <a class="build__option" href="../404.html" data-anim="right">
+              <span class="build__option-num">01</span>
+              <div>
+                <h3>Guided journeys</h3>
+                <p>Join a small-group departure on a set route and season.</p>
+              </div>
+              <span class="build__option-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a class="build__option" href="../404.html" data-anim="right" data-delay="0.08">
+              <span class="build__option-num">02</span>
+              <div>
+                <h3>Private journeys</h3>
+                <p>Build a trip around your own dates, pace and group.</p>
+              </div>
+              <span class="build__option-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+
+            <a class="build__option" href="../404.html" data-anim="right" data-delay="0.16">
+              <span class="build__option-num">03</span>
+              <div>
+                <h3>Just ask</h3>
+                <p>Not sure which? Send us a rough idea and we'll shape it together.</p>
+              </div>
+              <span class="build__option-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA — START EXPLORING ============ -->
+    <section class="sv-cta" id="cta">
+      <div class="sv-cta__media">
+        <img src="../assets/images/img_027.webp"
+          alt="A mountain lake reflecting the surrounding ridge" loading="lazy" decoding="async">
+        <div class="sv-cta__scrim"></div>
+      </div>
+
+      <div class="container sv-cta__inner">
+        <p class="sec-eyebrow" data-anim="up">Start Exploring</p>
+        <h2 class="sv-cta__title" data-anim="up" data-delay="0.06">
+          Pick an experience —<br><em>or let one find you.</em>
+        </h2>
+        <p class="sv-cta__lead" data-anim="up" data-delay="0.12">
+          Every journey begins with a short conversation. Tell us roughly what
+          you're after and we'll suggest a direction.
+        </p>
+        <div class="sv-cta__actions" data-anim="up" data-delay="0.18">
+          <a class="btn btn--primary" href="contact.html">Plan a Journey</a>
+          <a class="btn btn--ghost" href="blog.html">Read the Journal</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Stackly — home">
+            <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+            <span class="brand-name">Stackly</span>
+          </a>
+          <p>
+            Lower-impact journeys through forests, mountains and rivers — designed to
+            encourage deeper connections with local landscapes and the people who
+            steward them.
+          </p>
+          <div class="social-row">
+            <a href="../404.html" aria-label="Stackly on Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="../404.html" aria-label="Stackly on Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="../404.html" aria-label="Stackly on X">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="../404.html" aria-label="Stackly on YouTube">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col--explore">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="../404.html">Destinations</a></li>
+            <li><a href="../404.html">Experiences</a></li>
+            <li><a href="../404.html">Wildlife</a></li>
+            <li><a href="../404.html">Eco Stays</a></li>
+            <li><a href="../404.html">Responsible Travel</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col--resources">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="../404.html">Travel Guide</a></li>
+            <li><a href="../404.html">Sustainability</a></li>
+            <li><a href="blog.html">Journal</a></li>
+            <li><a href="../404.html">FAQ</a></li>
+            <li><a href="../404.html">Travel Tips</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col--contact">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <span>+91 00000 00000</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span>Stackly<br>Salem, Tamil Nadu, India</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <span>hello@stackly.example</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footerYear">2026</span> Stackly. All rights reserved.</p>
+        <p><a href="../404.html">Privacy</a> · <a href="../404.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= GSAP ================= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var isMobile = window.matchMedia("(max-width: 900px)").matches;
+
+      /* ---------------- Hamburger ---------------- */
+      var hamburger = document.getElementById("hamburger");
+      var overlay = document.getElementById("navOverlay");
+      var closeBtn = document.getElementById("navClose");
+
+      function lockScroll() { document.body.classList.add("is-locked"); }
+      function unlockScroll() { document.body.classList.remove("is-locked"); }
+
+      function openMenu() {
+        overlay.hidden = false;
+        hamburger.setAttribute("aria-expanded", "true");
+        hamburger.setAttribute("aria-label", "Close menu");
+        lockScroll();
+
+        if (reduceMotion || typeof gsap === "undefined") {
+          overlay.classList.add("is-open");
+        } else {
+          overlay.classList.add("is-open");
+          gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.32, ease: "power2.out" });
+          gsap.fromTo(".nav-overlay__nav a",
+            { opacity: 0, x: -46 },
+            { opacity: 1, x: 0, duration: 0.55, stagger: 0.07, delay: 0.08, ease: "power4.out" }
+          );
+          gsap.fromTo(".nav-overlay__foot .btn",
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.5, delay: 0.35, ease: "power3.out" }
+          );
+        }
+        closeBtn.focus();
+      }
+
+      function closeMenu() {
+        hamburger.setAttribute("aria-expanded", "false");
+        hamburger.setAttribute("aria-label", "Open menu");
+        unlockScroll();
+
+        if (reduceMotion || typeof gsap === "undefined") {
+          overlay.classList.remove("is-open");
+          overlay.hidden = true;
+        } else {
+          gsap.to(overlay, {
+            opacity: 0, duration: 0.25, ease: "power2.in",
+            onComplete: function () {
+              overlay.classList.remove("is-open");
+              overlay.hidden = true;
+              gsap.set(overlay, { clearProps: "opacity" });
+            }
+          });
+        }
+        hamburger.focus();
+      }
+
+      hamburger.addEventListener("click", function () {
+        if (hamburger.getAttribute("aria-expanded") === "true") closeMenu();
+        else openMenu();
+      });
+      closeBtn.addEventListener("click", closeMenu);
+      overlay.querySelectorAll("a").forEach(function (l) {
+        l.addEventListener("click", closeMenu);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+          closeMenu();
+        }
+      });
+
+      /* ---------------- Header stuck ---------------- */
+      var header = document.getElementById("siteHeader");
+      var lastY = -1;
+      function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+        if (y === lastY) return;
+        lastY = y;
+        header.classList.toggle("is-stuck", y > 40);
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* ---------------- Footer year ---------------- */
+      var yEl = document.getElementById("footerYear");
+      if (yEl) yEl.textContent = new Date().getFullYear();
+
+      /* ---------------- GSAP ---------------- */
+      if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+        document.querySelectorAll("[data-anim],[data-hero]").forEach(function (el) {
+          el.style.opacity = 1; el.style.transform = "none";
+        });
+        return;
+      }
+      gsap.registerPlugin(ScrollTrigger);
+
+      if (reduceMotion) {
+        gsap.set("[data-anim],[data-hero]", { clearProps: "all", opacity: 1 });
+        return;
+      }
+
+      /* ---- Hero entrance ---- */
+      var heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      heroTl
+        .from(".sv-hero__img", { scale: 1.14, duration: 2.0, ease: "power3.out" }, 0)
+        .from("[data-hero='1']", { opacity: 0, x: -44, duration: 0.9 }, 0.15)
+        .from("[data-hero='2']", { opacity: 0, y: 44, duration: 1.15 }, 0.28)
+        .from("[data-hero='3']", { opacity: 0, x: -44, duration: 1.0 }, 0.48)
+        .from("[data-hero='4'] .btn", {
+          opacity: 0, y: 24, duration: 0.8, stagger: 0.1
+        }, 0.68)
+        .from("[data-hero='5'] > div", {
+          opacity: 0, x: 50, duration: 0.9, stagger: 0.12
+        }, 0.82);
+
+      /* ---- Hero parallax ---- */
+      gsap.to(".sv-hero__img", {
+        yPercent: 12, ease: "none",
+        scrollTrigger: { trigger: ".sv-hero", start: "top top", end: "bottom top", scrub: 1 }
+      });
+
+      /* ---- Generic slide animations ---- */
+      var SLIDE_X = isMobile ? 80 : 42;
+      var SLIDE_Y = isMobile ? 46 : 34;
+
+      gsap.utils.toArray("[data-anim]").forEach(function (el) {
+        var dir = el.getAttribute("data-anim");
+        var delay = parseFloat(el.getAttribute("data-delay")) || 0;
+        var cfg = { opacity: 0, duration: isMobile ? 1.05 : 0.95, delay: delay, ease: "power3.out" };
+
+        if (dir === "left") cfg.x = -SLIDE_X;
+        else if (dir === "right") cfg.x = SLIDE_X;
+        else cfg.y = SLIDE_Y;
+
+        gsap.from(el, Object.assign(cfg, {
+          scrollTrigger: { trigger: el, start: isMobile ? "top 92%" : "top 86%", once: true }
+        }));
+      });
+
+      /* ---- Full-bleed parallax ---- */
+      [".water-split__media img", ".sv-cta__media img"].forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (!el) return;
+        gsap.fromTo(el, { yPercent: -6 }, {
+          yPercent: 6, ease: "none",
+          scrollTrigger: {
+            trigger: el.closest("section"),
+            start: "top bottom", end: "bottom top", scrub: 1
+          }
+        });
+      });
+
+      /* ---- Smooth scroll for the on-page index (in-page TOC only) ---- */
+      document.querySelectorAll('.ways__index-list a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          var id = link.getAttribute("href").slice(1);
+          var target = document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          var headerH = header.offsetHeight || 80;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+          window.scrollTo({ top: top, behavior: reduceMotion ? "auto" : "smooth" });
+        });
+      });
+
+      window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+    })();
+  </script>
+
+</body>
+
+</html>

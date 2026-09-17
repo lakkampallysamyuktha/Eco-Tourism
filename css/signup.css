@@ -1,0 +1,582 @@
+/* ============================================================
+   SIGNUP.CSS — Create-account page
+   Mirrors login.css layout with the visual on the right.
+   ============================================================ */
+
+body.auth-page {
+    background: var(--deep);
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* On signup the panel comes first, visual second */
+.auth--signup .auth__panel {
+    order: 1;
+}
+
+.auth--signup .auth__visual {
+    order: 2;
+}
+
+/* ============================================================
+   LEFT/RIGHT PANEL
+   ============================================================ */
+.auth__panel {
+    position: relative;
+    background: var(--cream);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 56px 60px;
+    overflow: hidden;
+}
+
+/* Back chip */
+.auth__back {
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: background .4s var(--ease-out), color .4s var(--ease-out),
+        border-color .4s var(--ease-out), transform .4s var(--ease-out);
+    z-index: 3;
+}
+
+.auth__back i {
+    font-size: 0.68rem;
+    transition: transform .4s var(--ease-out);
+}
+
+.auth__back:hover {
+    background: var(--deep);
+    color: var(--cream);
+    border-color: var(--deep);
+}
+
+.auth__back:hover i {
+    transform: translateX(-4px);
+}
+
+.auth__inner {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Brand */
+.auth__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+    align-self: flex-start;
+}
+
+.auth__brand img {
+    width: 150px;
+    height: 48px;
+    object-fit: contain;
+    filter: brightness(0);
+}
+
+.auth__brand span {
+    display: none;
+}
+
+/* Head */
+.auth__head {
+    margin-bottom: 28px;
+}
+
+.auth__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--deep);
+    margin-bottom: 10px;
+}
+
+.auth__sub {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: none;
+}
+
+/* ============================================================
+   VISUAL SIDE
+   ============================================================ */
+.auth__visual {
+    position: relative;
+    overflow: hidden;
+    background: var(--deep);
+}
+
+.auth__visual-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+}
+
+.auth__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(9, 35, 40, 0.45) 0%, rgba(9, 35, 40, 0.35) 40%, rgba(9, 35, 40, 0.85) 100%),
+        linear-gradient(90deg, rgba(9, 35, 40, 0.55) 0%, rgba(9, 35, 40, 0.05) 100%);
+}
+
+.auth__quote {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    bottom: 56px;
+    z-index: 2;
+    color: var(--cream);
+    max-width: 44ch;
+}
+
+.auth__quote-mark {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 0.8;
+    color: var(--sage);
+    margin-bottom: 10px;
+}
+
+.auth__quote p {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+    line-height: 1.4;
+    color: var(--cream);
+    max-width: none;
+    margin-bottom: 14px;
+}
+
+.auth__quote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+}
+
+.auth__visual-brand {
+    position: absolute;
+    top: 32px;
+    left: 56px;
+    z-index: 2;
+    color: var(--cream);
+    line-height: 1.35;
+}
+
+.auth__visual-brand span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.auth__visual-brand small {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ============================================================
+   FORM FIELDS
+   ============================================================ */
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field__label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+.field__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.field__aux {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--green);
+    transition: color .35s var(--ease-out);
+}
+
+.field__aux:hover {
+    color: var(--teal);
+    text-decoration: underline;
+}
+
+.field__control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    transition: border-color .35s var(--ease-out), box-shadow .35s var(--ease-out), background .35s var(--ease-out);
+}
+
+.field__control:hover {
+    border-color: rgba(9, 35, 40, 0.28);
+}
+
+.field__control:focus-within {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(42, 131, 95, 0.15);
+}
+
+.field__icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 46px;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    flex-shrink: 0;
+}
+
+.field__input {
+    flex: 1;
+    width: 100%;
+    padding: 14px 14px 14px 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-size: 0.96rem;
+    color: var(--ink);
+    font-family: var(--font-sans);
+}
+
+.field__input::placeholder {
+    color: rgba(9, 35, 40, 0.36);
+}
+
+.field__eye {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 46px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    transition: color .3s var(--ease-out), background .3s var(--ease-out);
+    border-radius: 0 4px 4px 0;
+    flex-shrink: 0;
+}
+
+.field__eye:hover {
+    color: var(--teal);
+    background: rgba(9, 35, 40, 0.04);
+}
+
+.field__eye[aria-pressed="true"] {
+    color: var(--green);
+}
+
+/* Edge / Chromium reveal removal */
+.field__input::-ms-reveal,
+.field__input::-ms-clear {
+    display: none;
+}
+
+.field__input::-webkit-credentials-auto-fill-button,
+.field__input::-webkit-strong-password-auto-fill-button {
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Autofill theming */
+.field__input:-webkit-autofill,
+.field__input:-webkit-autofill:hover,
+.field__input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--ink);
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    box-shadow: 0 0 0 1000px #fff inset;
+    transition: background-color 9999s ease-in-out 0s;
+    caret-color: var(--ink);
+    font-family: var(--font-sans);
+}
+
+/* Invalid */
+.field__input.is-invalid,
+.field__control.is-invalid {
+    border-color: #c24a3a;
+}
+
+.field__error {
+    display: none;
+    font-size: 0.76rem;
+    color: #c24a3a;
+}
+
+.field__error:not(:empty) {
+    display: block;
+}
+
+/* ============================================================
+   DROPDOWN
+   ============================================================ */
+.dropdown {
+    position: relative;
+}
+
+.dropdown__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-size: 0.96rem;
+    font-family: var(--font-sans);
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+
+.dropdown__trigger:hover {
+    border-color: rgba(9, 35, 40, 0.28);
+}
+
+.dropdown__trigger:focus-visible {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(42, 131, 95, 0.15);
+}
+
+.dropdown.is-open .dropdown__trigger {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(42, 131, 95, 0.15);
+}
+
+.dropdown.is-invalid .dropdown__trigger {
+    border-color: #c24a3a;
+}
+
+.dropdown__value {
+    flex: 1;
+    color: var(--ink);
+}
+
+.dropdown__value[data-value=""] {
+    color: rgba(9, 35, 40, 0.4);
+}
+
+.dropdown__arrow {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    transition: transform .35s var(--ease-out);
+}
+
+.dropdown.is-open .dropdown__arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown__list {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    box-shadow: 0 12px 32px rgba(9, 35, 40, 0.12);
+    padding: 6px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.dropdown__option {
+    padding: 11px 14px;
+    font-size: 0.94rem;
+    color: var(--ink);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background .25s var(--ease-out), color .25s var(--ease-out);
+}
+
+.dropdown__option:hover,
+.dropdown__option:focus {
+    background: rgba(42, 131, 95, 0.08);
+    color: var(--teal);
+    outline: none;
+}
+
+.dropdown__option.is-selected {
+    background: rgba(42, 131, 95, 0.14);
+    color: var(--teal);
+    font-weight: 500;
+}
+
+/* ============================================================
+   SUBMIT + FOOT
+   ============================================================ */
+.auth__submit {
+    width: 100%;
+    padding: 16px 32px;
+    margin-top: 6px;
+}
+
+.auth__submit i {
+    font-size: 0.72rem;
+    transition: transform .4s var(--ease-out);
+}
+
+.auth__submit:hover i {
+    transform: translateX(5px);
+}
+
+.auth__foot {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    max-width: none;
+}
+
+.auth__foot a {
+    color: var(--teal);
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color .35s var(--ease-out);
+}
+
+.auth__foot a:hover {
+    border-color: var(--teal);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+    .auth {
+        grid-template-columns: 1fr;
+    }
+
+    .auth__visual {
+        display: none;
+    }
+
+    .auth--signup .auth__panel {
+        order: 1;
+    }
+
+    .auth__panel {
+        padding: 96px 24px 48px;
+        min-height: 100vh;
+        min-height: 100svh;
+    }
+
+    .auth__back {
+        top: 22px;
+        right: 20px;
+        padding: 8px 14px;
+        font-size: 0.66rem;
+    }
+
+    .auth__inner {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth__panel {
+        padding: 88px 20px 40px;
+    }
+
+    .auth__brand {
+        margin-bottom: 26px;
+    }
+
+    .auth__head {
+        margin-bottom: 22px;
+    }
+
+    .auth__back span {
+        display: none;
+    }
+
+    .auth__back {
+        padding: 9px;
+        margin-right: 30px;
+    }
+
+    .auth__back i {
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    .auth__back,
+    .auth__back i,
+    .field__control,
+    .field__eye,
+    .dropdown__trigger,
+    .dropdown__arrow,
+    .dropdown__option,
+    .auth__submit i,
+    .auth__foot a {
+        transition: none;
+        transform: none !important;
+    }
+}

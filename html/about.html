@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#092328">
+    <title>About — Stackly Eco Tourism</title>
+    <meta name="description"
+        content="Stackly is an eco-tourism organisation built around origin, stewardship, people and a slower philosophy of travel.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+
+<body>
+
+    
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a class="brand" href="../index.html" aria-label="Stackly — home">
+                <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+                <span class="brand-name">Stackly</span>
+            </a>
+
+            <nav class="primary-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html" class="is-active" aria-current="page">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn--outline btn--sm header-login" href="login.html">Login</a>
+                <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="navOverlay">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HAMBURGER OVERLAY ================= -->
+    <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+        <div class="nav-overlay__top">
+            <a class="brand brand--overlay" href="../index.html" aria-label="Stackly — home">
+                <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+                <span class="brand-name">Stackly</span>
+            </a>
+            <button class="nav-close" id="navClose" type="button" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.4"
+                        stroke-linecap="round" />
+                </svg>
+            </button>
+        </div>
+
+        <nav class="nav-overlay__nav" aria-label="Mobile">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html" class="is-active" aria-current="page">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-overlay__foot">
+            <a class="btn btn--primary" href="login.html">Login</a>
+        </div>
+    </div>
+
+    <main id="main">
+
+        <!-- ============ HERO ============ -->
+        <section class="ab-hero">
+            <div class="ab-hero__media">
+                <img class="ab-hero__img"
+                    src="../assets/images/img_019.webp"
+                    alt="A wide mountain valley lit by low morning sun">
+                <div class="ab-hero__scrim"></div>
+            </div>
+
+            <div class="container ab-hero__inner">
+                <p class="eyebrow" data-hero="1">About Stackly</p>
+                <h1 class="ab-hero__title" data-hero="2">
+                    Stewardship,<br><em>not spectacle.</em>
+                </h1>
+                <p class="ab-hero__lead" data-hero="3">
+                    Stackly is an eco-tourism organisation built around a simple idea: that a
+                    journey should leave a landscape and its people better supported — not
+                    more crowded, more photographed, or more worn.
+                </p>
+
+                <div class="ab-hero__actions" data-hero="4">
+                    <a class="btn btn--primary" href="services.html">Explore Experiences</a>
+                    <a class="btn btn--ghost" href="contact.html">Plan a Journey</a>
+                </div>
+
+                <div class="ab-hero__meta" data-hero="5">
+                    <div>
+                        <span>Founded</span>
+                        <p>Rooted in the Western Ghats, working across South India.</p>
+                    </div>
+                    <div>
+                        <span>Focus</span>
+                        <p>Lower-impact journeys, local hiring, seasonal routing.</p>
+                    </div>
+                    <div>
+                        <span>Still</span>
+                        <p>Learning — and honest about what we haven't measured yet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ WHO WE ARE ============ -->
+        <section class="section section--cream" id="who-we-are">
+            <div class="container">
+                <div class="who">
+                    <div class="who__copy">
+                        <p class="sec-eyebrow" data-anim="left">Who We Are</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            A travel company that thinks like <em>a guest.</em>
+                        </h2>
+                        <p data-anim="left" data-delay="0.12">
+                            We plan and run small-group journeys through forests, hill country,
+                            river basins and coastal edges — always with local guides, always at a
+                            pace a place can absorb.
+                        </p>
+                        <p data-anim="left" data-delay="0.18">
+                            We are not a conservation body, and we don't claim to be. What we can
+                            do is run travel carefully, hire locally, and be honest about where we
+                            still have work to do.
+                        </p>
+                        <a class="link-arrow" href="../404.html" data-anim="left" data-delay="0.24">
+                            Plan a journey <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <figure class="who__media" data-anim="right">
+                        <img src="../assets/images/img_020.webp"
+                            alt="Sunlight filtering through a dense evergreen forest" loading="lazy" decoding="async">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ WHERE IT BEGAN ============ -->
+        <section class="section section--sand" id="where-it-began">
+            <div class="container">
+                <div class="begin">
+                    <div class="begin__head">
+                        <p class="sec-eyebrow" data-anim="left">Where It Began</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            It started on <em>a footpath.</em>
+                        </h2>
+                    </div>
+
+                    <div class="begin__grid">
+                        <figure class="begin__media" data-anim="left">
+                            <img src="../assets/images/img_021.webp"
+                                alt="A forest trail winding between tall trees" loading="lazy" decoding="async">
+                        </figure>
+
+                        <div class="begin__body">
+                            <p data-anim="right">
+                                The first Stackly route wasn't designed — it was walked. A group of
+                                friends kept returning to the same ridge in the Western Ghats, and
+                                kept finding the same problem: the trails they loved were being
+                                loved to death.
+                            </p>
+                            <p data-anim="right" data-delay="0.08">
+                                So the early trips were small. Deliberately small. Led by people who
+                                already lived nearby. Timed to seasons when the ground could take it.
+                                That was never a marketing decision — it was a practical one that
+                                turned out to be the whole point.
+                            </p>
+                            <p data-anim="right" data-delay="0.16">
+                                What's grown since is bigger, but the same rule holds: if a place
+                                can't comfortably host us, we don't go.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ OUR PHILOSOPHY OF TRAVEL ============ -->
+        <section class="section section--deep" id="philosophy">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">03 — Our Philosophy of Travel</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Three ideas we <em>keep returning to</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Everything we plan comes back to these. When a decision is unclear,
+                        we check it against them.
+                    </p>
+                </div>
+
+                <div class="philosophy">
+                    <article class="philosophy__card" data-anim="left">
+                        <span class="philosophy__num">01</span>
+                        <h3>Place comes first</h3>
+                        <p>
+                            Routes are chosen around what a landscape can host — season, size,
+                            sensitivity — not around what photographs best or what a client
+                            asked for first.
+                        </p>
+                    </article>
+
+                    <article class="philosophy__card" data-anim="up" data-delay="0.08">
+                        <span class="philosophy__num">02</span>
+                        <h3>People make it real</h3>
+                        <p>
+                            Journeys are staffed and hosted by people from the region. Without
+                            that, travel is just extraction with a nicer view.
+                        </p>
+                    </article>
+
+                    <article class="philosophy__card" data-anim="right" data-delay="0.16">
+                        <span class="philosophy__num">03</span>
+                        <h3>Honesty over polish</h3>
+                        <p>
+                            We'd rather tell you what we don't yet know than invent a number
+                            that sounds good. Trust is built in the gaps.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- ============ OUR JOURNEY ============ -->
+        <section class="section section--sand" id="journey">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Our Journey</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Milestones on <em>the way</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Not a full history — just the moments that changed how we run trips.
+                    </p>
+                </div>
+
+                <ol class="timeline">
+                    <li class="timeline__item" data-anim="left">
+                        <span class="timeline__dot" aria-hidden="true"></span>
+                        <div class="timeline__content">
+                            <span class="timeline__year">The first walks</span>
+                            <h3>Small groups, same ridge</h3>
+                            <p>Informal trips in the Western Ghats, capped at eight people, guided by people who lived
+                                nearby.</p>
+                        </div>
+                    </li>
+
+                    <li class="timeline__item" data-anim="right" data-delay="0.08">
+                        <span class="timeline__dot" aria-hidden="true"></span>
+                        <div class="timeline__content">
+                            <span class="timeline__year">Going formal</span>
+                            <h3>Stackly takes shape</h3>
+                            <p>A proper company formed around a single rule: if the place can't host us, we don't go.
+                            </p>
+                        </div>
+                    </li>
+
+                    <li class="timeline__item" data-anim="left" data-delay="0.16">
+                        <span class="timeline__dot" aria-hidden="true"></span>
+                        <div class="timeline__content">
+                            <span class="timeline__year">First full season</span>
+                            <h3>Routes across three regions</h3>
+                            <p>Expanded carefully into the Nilgiri Hills and Kabini River Basin — one region at a time,
+                                never in parallel.</p>
+                        </div>
+                    </li>
+
+                    <li class="timeline__item" data-anim="right" data-delay="0.24">
+                        <span class="timeline__dot" aria-hidden="true"></span>
+                        <div class="timeline__content">
+                            <span class="timeline__year">Today</span>
+                            <h3>Still small on purpose</h3>
+                            <p>Group caps remain at twelve. Every departure is still staffed primarily by people from
+                                the region.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ THE PEOPLE BEHIND THE JOURNEY ============ -->
+        <section class="section section--cream" id="people">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">The People Behind the Journey</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Fewer titles, <em>more time outside</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        A small team of planners, guides and hosts — most of us still leading
+                        trips, not just designing them.
+                    </p>
+                </div>
+
+                <div class="team">
+                    <article class="team__member" data-anim="left">
+                        <figure class="team__media">
+                            <img src="../assets/images/img_022.webp"
+                                alt="A team member standing in outdoor clothing" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="team__meta">
+                            <h3>Founder &amp; Lead Guide</h3>
+                            <p>Plans most routes and still walks them. Fifteen years in the Western Ghats.</p>
+                        </div>
+                    </article>
+
+                    <article class="team__member" data-anim="up" data-delay="0.08">
+                        <figure class="team__media">
+                            <img src="../assets/images/img_023.webp"
+                                alt="A team member working outdoors" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="team__meta">
+                            <h3>Conservation Lead</h3>
+                            <p>Keeps routes out of sensitive areas and tracks what we're actually affecting.</p>
+                        </div>
+                    </article>
+
+                    <article class="team__member" data-anim="up" data-delay="0.16">
+                        <figure class="team__media">
+                            <img src="../assets/images/img_024.webp"
+                                alt="A team member outdoors near a forest edge" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="team__meta">
+                            <h3>Naturalist &amp; Guide</h3>
+                            <p>Leads wildlife-focused departures. Prefers a quiet sighting over a guaranteed one.</p>
+                        </div>
+                    </article>
+
+                    <article class="team__member" data-anim="right" data-delay="0.24">
+                        <figure class="team__media">
+                            <img src="../assets/images/img_025.webp"
+                                alt="A team member smiling outdoors" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="team__meta">
+                            <h3>Community &amp; Hosts</h3>
+                            <p>Works with village hosts and artisans across every region we travel through.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ OUR RELATIONSHIP WITH PLACE ============ -->
+        <section class="place" id="relationship">
+            <div class="place__media">
+                <img src="../assets/images/img_026.webp"
+                    alt="Mist over a forested valley at dawn" loading="lazy" decoding="async">
+                <div class="place__scrim"></div>
+            </div>
+
+            <div class="container place__content">
+                <p class="sec-eyebrow" data-anim="left">Our Relationship With Place</p>
+                <h2 class="place__title" data-anim="left" data-delay="0.06">
+                    Long-term guests,<br>not seasonal visitors.
+                </h2>
+                <p class="place__lead" data-anim="left" data-delay="0.12">
+                    The regions we travel through aren't destinations to us — they're
+                    relationships. That shapes everything: who we hire, when we visit,
+                    how long we stay, and how often we come back.
+                </p>
+
+                <div class="place__grid">
+                    <div class="place__cell" data-anim="up">
+                        <span class="place__num">01</span>
+                        <h3>Local stewardship</h3>
+                        <p>Every route is planned with input from people who live along it.</p>
+                    </div>
+                    <div class="place__cell" data-anim="up" data-delay="0.08">
+                        <span class="place__num">02</span>
+                        <h3>Seasonal timing</h3>
+                        <p>We move departures away from sensitive windows, even when it costs us bookings.</p>
+                    </div>
+                    <div class="place__cell" data-anim="up" data-delay="0.16">
+                        <span class="place__num">03</span>
+                        <h3>Repeat, don't expand</h3>
+                        <p>We add regions slowly — depth over breadth, always.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MEASURING OUR FOOTPRINT ============ -->
+        <section class="section section--cream" id="footprint">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">Measuring Our Footprint</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            What we track — <em>and what we don't</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        We don't publish invented statistics. Here's what we measure,
+                        and the honest gaps we're still working on.
+                    </p>
+                </div>
+
+                <div class="footprint">
+                    <article class="footprint__card" data-anim="left">
+                        <span class="footprint__status footprint__status--measured">Measured</span>
+                        <h3>Group size per departure</h3>
+                        <p>Capped at twelve, tracked per trip, and reported internally every season.</p>
+                    </article>
+
+                    <article class="footprint__card" data-anim="up" data-delay="0.06">
+                        <span class="footprint__status footprint__status--measured">Measured</span>
+                        <h3>Local hire rate</h3>
+                        <p>The share of guides, hosts and suppliers sourced from the region travelled.</p>
+                    </article>
+
+                    <article class="footprint__card" data-anim="up" data-delay="0.12">
+                        <span class="footprint__status footprint__status--measured">Measured</span>
+                        <h3>Waste carried out</h3>
+                        <p>Everything that enters a camp is logged on the way out — including food waste.</p>
+                    </article>
+
+                    <article class="footprint__card footprint__card--open" data-anim="right" data-delay="0.18">
+                        <span class="footprint__status footprint__status--open">Still working on</span>
+                        <h3>Carbon accounting</h3>
+                        <p>We don't yet have a credible way to measure our total emissions — so we don't claim one.</p>
+                    </article>
+                </div>
+
+                <p class="footprint__note" data-anim="up" data-delay="0.24">
+                    If a metric isn't listed here, we're not asserting it. That's a deliberate choice.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ BEYOND TOURISM ============ -->
+        <section class="section section--sand" id="beyond-tourism">
+            <div class="container">
+                <div class="beyond">
+                    <div class="beyond__copy">
+                        <p class="sec-eyebrow" data-anim="left">Beyond Tourism</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            What happens <em>after the trip</em>
+                        </h2>
+                        <p data-anim="left" data-delay="0.12">
+                            Travel is a means, not the end. The long-term point is to support
+                            conservation and community work that outlasts any single season —
+                            and to leave the places we visit more capable, not more crowded.
+                        </p>
+                        <p data-anim="left" data-delay="0.18">
+                            We support local projects where we can, and we're honest when we
+                            can't. What we don't do is attach our logo to causes we haven't
+                            actually contributed to.
+                        </p>
+                    </div>
+
+                    <div class="beyond__facts">
+                        <div class="beyond__fact" data-anim="right">
+                            <span>01</span>
+                            <h3>Supporting local projects</h3>
+                            <p>Where we can, journey revenue contributes to regionally-run conservation and education
+                                work.</p>
+                        </div>
+                        <div class="beyond__fact" data-anim="right" data-delay="0.08">
+                            <span>02</span>
+                            <h3>Working with what exists</h3>
+                            <p>We partner with people already doing the work, rather than starting parallel efforts.</p>
+                        </div>
+                        <div class="beyond__fact" data-anim="right" data-delay="0.16">
+                            <span>03</span>
+                            <h3>Long-term relationships</h3>
+                            <p>Same regions, same hosts, year after year — so trust compounds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ THE ROAD AHEAD ============ -->
+        <section class="section section--deep" id="road-ahead">
+            <div class="container">
+                <div class="sec-head">
+                    <div>
+                        <p class="sec-eyebrow" data-anim="left">The Road Ahead</p>
+                        <h2 class="sec-title" data-anim="left" data-delay="0.06">
+                            Where we're <em>heading next</em>
+                        </h2>
+                    </div>
+                    <p class="sec-lead" data-anim="right" data-delay="0.1">
+                        Not a manifesto — just the direction we're moving in, and what
+                        we'll be honest about along the way.
+                    </p>
+                </div>
+
+                <ol class="road">
+                    <li class="road__item" data-anim="left">
+                        <span class="road__num">01</span>
+                        <h3>Deeper, not wider</h3>
+                        <p>Fewer new regions. More time in the ones we already know.</p>
+                    </li>
+                    <li class="road__item" data-anim="up" data-delay="0.06">
+                        <span class="road__num">02</span>
+                        <h3>Better measurement</h3>
+                        <p>Credible carbon accounting — even if it takes time to get right.</p>
+                    </li>
+                    <li class="road__item" data-anim="up" data-delay="0.12">
+                        <span class="road__num">03</span>
+                        <h3>More local ownership</h3>
+                        <p>Handing more of the operation to the people who live in the regions.</p>
+                    </li>
+                    <li class="road__item" data-anim="right" data-delay="0.18">
+                        <span class="road__num">04</span>
+                        <h3>Slower itineraries</h3>
+                        <p>Longer stays, fewer miles, more unplanned afternoons.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============ CTA — TRAVEL WITH PURPOSE ============ -->
+        <section class="about-cta" id="cta">
+            <div class="about-cta__media">
+                <img src="../assets/images/img_027.webp"
+                    alt="A mountain lake reflecting the surrounding ridge" loading="lazy" decoding="async">
+                <div class="about-cta__scrim"></div>
+            </div>
+
+            <div class="container about-cta__inner">
+                <p class="sec-eyebrow" data-anim="up">Travel With Purpose</p>
+                <h2 class="about-cta__title" data-anim="up" data-delay="0.06">
+                    Come see how it works <em>in person.</em>
+                </h2>
+                <p class="about-cta__lead" data-anim="up" data-delay="0.12">
+                    Every journey starts with a conversation. Tell us what you're after,
+                    and we'll tell you honestly whether we're the right fit.
+                </p>
+                <div class="about-cta__actions" data-anim="up" data-delay="0.18">
+                    <a class="btn btn--primary" href="contact.html">Plan a Journey</a>
+                    <a class="btn btn--ghost" href="services.html">Browse Experiences</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <a class="brand" href="../index.html" aria-label="Stackly — home">
+                        <img class="brand-logo" src="../logo.webp" alt="Stackly logo">
+                        <span class="brand-name">Stackly</span>
+                    </a>
+                    <p>
+                        Lower-impact journeys through forests, mountains and rivers — designed to
+                        encourage deeper connections with local landscapes and the people who
+                        steward them.
+                    </p>
+                    <div class="social-row">
+                        <a href="../404.html" aria-label="Stackly on Instagram">
+                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="../404.html" aria-label="Stackly on Facebook">
+                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="../404.html" aria-label="Stackly on X">
+                            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="../404.html" aria-label="Stackly on YouTube">
+                            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col--explore">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="../404.html">Destinations</a></li>
+                        <li><a href="../404.html">Experiences</a></li>
+                        <li><a href="../404.html">Wildlife</a></li>
+                        <li><a href="../404.html">Eco Stays</a></li>
+                        <li><a href="../404.html">Responsible Travel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col--resources">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../404.html">Travel Guide</a></li>
+                        <li><a href="../404.html">Sustainability</a></li>
+                        <li><a href="blog.html">Journal</a></li>
+                        <li><a href="../404.html">FAQ</a></li>
+                        <li><a href="../404.html">Travel Tips</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-col--contact">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                            <span>+91 00000 00000</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                            <span>Stackly<br>Salem, Tamil Nadu, India</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            <span>hello@stackly.example</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© <span id="footerYear">2026</span> Stackly. All rights reserved.</p>
+                <p><a href="../404.html">Privacy</a> · <a href="../404.html">Terms</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= GSAP ================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            var isMobile = window.matchMedia("(max-width: 900px)").matches;
+
+            /* ---------------- Hamburger ---------------- */
+            var hamburger = document.getElementById("hamburger");
+            var overlay = document.getElementById("navOverlay");
+            var closeBtn = document.getElementById("navClose");
+
+            function lockScroll() { document.body.classList.add("is-locked"); }
+            function unlockScroll() { document.body.classList.remove("is-locked"); }
+
+            function openMenu() {
+                overlay.hidden = false;
+                hamburger.setAttribute("aria-expanded", "true");
+                hamburger.setAttribute("aria-label", "Close menu");
+                lockScroll();
+
+                if (reduceMotion || typeof gsap === "undefined") {
+                    overlay.classList.add("is-open");
+                } else {
+                    overlay.classList.add("is-open");
+                    gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.32, ease: "power2.out" });
+                    gsap.fromTo(".nav-overlay__nav a",
+                        { opacity: 0, x: -46 },
+                        { opacity: 1, x: 0, duration: 0.55, stagger: 0.07, delay: 0.08, ease: "power4.out" }
+                    );
+                    gsap.fromTo(".nav-overlay__foot .btn",
+                        { opacity: 0, y: 24 },
+                        { opacity: 1, y: 0, duration: 0.5, delay: 0.35, ease: "power3.out" }
+                    );
+                }
+                closeBtn.focus();
+            }
+
+            function closeMenu() {
+                hamburger.setAttribute("aria-expanded", "false");
+                hamburger.setAttribute("aria-label", "Open menu");
+                unlockScroll();
+
+                if (reduceMotion || typeof gsap === "undefined") {
+                    overlay.classList.remove("is-open");
+                    overlay.hidden = true;
+                } else {
+                    gsap.to(overlay, {
+                        opacity: 0, duration: 0.25, ease: "power2.in",
+                        onComplete: function () {
+                            overlay.classList.remove("is-open");
+                            overlay.hidden = true;
+                            gsap.set(overlay, { clearProps: "opacity" });
+                        }
+                    });
+                }
+                hamburger.focus();
+            }
+
+            hamburger.addEventListener("click", function () {
+                if (hamburger.getAttribute("aria-expanded") === "true") closeMenu();
+                else openMenu();
+            });
+            closeBtn.addEventListener("click", closeMenu);
+            overlay.querySelectorAll("a").forEach(function (l) {
+                l.addEventListener("click", closeMenu);
+            });
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+                    closeMenu();
+                }
+            });
+
+            /* ---------------- Header stuck ---------------- */
+            var header = document.getElementById("siteHeader");
+            var lastY = -1;
+            function onScroll() {
+                var y = window.scrollY || window.pageYOffset;
+                if (y === lastY) return;
+                lastY = y;
+                header.classList.toggle("is-stuck", y > 40);
+            }
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+
+            /* ---------------- Footer year ---------------- */
+            var yEl = document.getElementById("footerYear");
+            if (yEl) yEl.textContent = new Date().getFullYear();
+
+            /* ---------------- GSAP ---------------- */
+            if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+                document.querySelectorAll("[data-anim],[data-hero]").forEach(function (el) {
+                    el.style.opacity = 1; el.style.transform = "none";
+                });
+                return;
+            }
+            gsap.registerPlugin(ScrollTrigger);
+
+            if (reduceMotion) {
+                gsap.set("[data-anim],[data-hero]", { clearProps: "all", opacity: 1 });
+                return;
+            }
+
+            /* ---- Hero entrance ---- */
+            var heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+            heroTl
+                .from(".ab-hero__img", { scale: 1.14, duration: 2.0, ease: "power3.out" }, 0)
+                .from("[data-hero='1']", { opacity: 0, x: -44, duration: 0.9 }, 0.15)
+                .from("[data-hero='2']", { opacity: 0, y: 44, duration: 1.15 }, 0.28)
+                .from("[data-hero='3']", { opacity: 0, x: -44, duration: 1.0 }, 0.48)
+                .from("[data-hero='4'] .btn", {
+                    opacity: 0, y: 24, duration: 0.8, stagger: 0.1
+                }, 0.68)
+                .from("[data-hero='5'] > div", {
+                    opacity: 0, x: 50, duration: 0.9, stagger: 0.12
+                }, 0.82);
+
+            /* ---- Hero parallax ---- */
+            gsap.to(".ab-hero__img", {
+                yPercent: 12, ease: "none",
+                scrollTrigger: { trigger: ".ab-hero", start: "top top", end: "bottom top", scrub: 1 }
+            });
+
+            /* ---- Generic slide animations ---- */
+            var SLIDE_X = isMobile ? 80 : 42;
+            var SLIDE_Y = isMobile ? 46 : 34;
+
+            gsap.utils.toArray("[data-anim]").forEach(function (el) {
+                var dir = el.getAttribute("data-anim");
+                var delay = parseFloat(el.getAttribute("data-delay")) || 0;
+                var cfg = { opacity: 0, duration: isMobile ? 1.05 : 0.95, delay: delay, ease: "power3.out" };
+
+                if (dir === "left") cfg.x = -SLIDE_X;
+                else if (dir === "right") cfg.x = SLIDE_X;
+                else cfg.y = SLIDE_Y;
+
+                gsap.from(el, Object.assign(cfg, {
+                    scrollTrigger: { trigger: el, start: isMobile ? "top 92%" : "top 86%", once: true }
+                }));
+            });
+
+            /* ---- Full-bleed parallax ---- */
+            [".place__media img", ".about-cta__media img"].forEach(function (sel) {
+                var el = document.querySelector(sel);
+                if (!el) return;
+                gsap.fromTo(el, { yPercent: -6 }, {
+                    yPercent: 6, ease: "none",
+                    scrollTrigger: {
+                        trigger: el.closest("section"),
+                        start: "top bottom", end: "bottom top", scrub: 1
+                    }
+                });
+            });
+
+            /* ---- Timeline dot reveal ---- */
+            gsap.utils.toArray(".timeline__dot").forEach(function (dot) {
+                gsap.from(dot, {
+                    scale: 0, opacity: 0, duration: 0.6, ease: "power3.out",
+                    scrollTrigger: { trigger: dot, start: "top 88%", once: true }
+                });
+            });
+
+            window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+        })();
+    </script>
+
+</body>
+
+</html>
