@@ -208,7 +208,7 @@
     }
 
     .dash-nav li+li {
-      margin-top: 4px;
+      margin-top: 16px;
     }
 
     .dash-nav button {
@@ -1409,13 +1409,11 @@
     </div>
 
     <div class="dash-header__welcome">
-      <h1 id="welcomeHello">Hello traveller</h1>
-      <p id="welcomeSub">Signed in as User</p>
     </div>
 
     <div class="dash-header__right">
       <span class="dash-header__email" id="headerEmail">—</span>
-      <a class="dash-header__profile" href="#profile" id="headerProfile" aria-label="Open profile">
+      <a class="dash-header__profile" href="../404.html" id="headerProfile" aria-label="Open profile">
         <i class="fa-solid fa-user" aria-hidden="true"></i>
       </a>
       <button class="dash-header__menu-btn" id="menuBtn" type="button" aria-label="Open dashboard menu"
@@ -2361,21 +2359,19 @@
         }
       });
 
-      /* Header profile shortcut (desktop only — hidden on mobile) */
-      var headerProfile = document.getElementById("headerProfile");
-      if (headerProfile) {
-        headerProfile.addEventListener("click", function (e) {
-          e.preventDefault();
-          activatePanel("profile");
-        });
-      }
+      /* Header profile links directly to 404 page */
 
       /* Logo reset (header) */
       var logoReset = document.getElementById("logoReset");
       if (logoReset) {
         logoReset.addEventListener("click", function (e) {
           e.preventDefault();
-          window.location.reload();
+          var p = document.getElementById("panel-journeys");
+          if (p && p.classList.contains("is-active")) { 
+            window.scrollTo(0, 0);
+            window.location.reload(); 
+          }
+          else { activatePanel("journeys"); }
         });
       }
 
@@ -2384,7 +2380,12 @@
       if (overlayLogoReset) {
         overlayLogoReset.addEventListener("click", function (e) {
           e.preventDefault();
-          window.location.reload();
+          var p = document.getElementById("panel-journeys");
+          if (p && p.classList.contains("is-active")) { 
+            window.scrollTo(0, 0);
+            window.location.reload(); 
+          }
+          else { activatePanel("journeys"); }
         });
       }
 
@@ -2546,7 +2547,7 @@
       /* =========================================================
          HASH ROUTING & SCROLL RESTORATION
          ========================================================= */
-      if ("scrollRestoration" in history) history.scrollRestoration = "auto";
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       
       var initialHash = window.location.hash.replace("#", "");
       if (initialHash && document.getElementById("panel-" + initialHash)) {

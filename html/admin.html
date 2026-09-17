@@ -212,7 +212,7 @@
     }
 
     .adm-nav li+li {
-      margin-top: 4px;
+      margin-top: 16px;
     }
 
     .adm-nav button {
@@ -1455,13 +1455,11 @@
     </div>
 
     <div class="adm-header__welcome">
-      <h1 id="welcomeHello">Hello admin</h1>
-      <p id="welcomeSub">Operations console · Signed in as Admin</p>
     </div>
 
     <div class="adm-header__right">
       <span class="adm-header__email" id="headerEmail">—</span>
-      <a class="adm-header__profile" href="#profile" id="headerProfile" aria-label="Open account">
+      <a class="adm-header__profile" href="../404.html" id="headerProfile" aria-label="Open account">
         <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
       </a>
       <button class="adm-header__menu-btn" id="menuBtn" type="button" aria-label="Open admin menu" aria-expanded="false"
@@ -2773,21 +2771,19 @@
         }
       });
 
-      /* Header profile → jump to account section (operations is closest) */
-      var headerProfile = document.getElementById("headerProfile");
-      if (headerProfile) {
-        headerProfile.addEventListener("click", function (e) {
-          e.preventDefault();
-          activatePanel("operations");
-        });
-      }
+      /* Header profile links directly to 404 page */
 
       /* Logo reset (header) */
       var logoReset = document.getElementById("logoReset");
       if (logoReset) {
         logoReset.addEventListener("click", function (e) {
           e.preventDefault();
-          window.location.reload();
+          var p = document.getElementById("panel-overview");
+          if (p && p.classList.contains("is-active")) { 
+            window.scrollTo(0, 0);
+            window.location.reload(); 
+          }
+          else { activatePanel("overview"); }
         });
       }
 
@@ -2796,7 +2792,12 @@
       if (overlayLogoReset) {
         overlayLogoReset.addEventListener("click", function (e) {
           e.preventDefault();
-          window.location.reload();
+          var p = document.getElementById("panel-overview");
+          if (p && p.classList.contains("is-active")) { 
+            window.scrollTo(0, 0);
+            window.location.reload(); 
+          }
+          else { activatePanel("overview"); }
         });
       }
 
@@ -2967,7 +2968,7 @@
       /* =========================================================
          HASH ROUTING & SCROLL RESTORATION
          ========================================================= */
-      if ("scrollRestoration" in history) history.scrollRestoration = "auto";
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       
       var initialHash = window.location.hash.replace("#", "");
       if (initialHash && document.getElementById("panel-" + initialHash)) {

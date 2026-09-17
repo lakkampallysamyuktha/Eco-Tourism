@@ -21,6 +21,23 @@
 </head>
 
 <body>
+    <!-- ================= LOADER ================= -->
+    <div id="site-loader" class="site-loader">
+        <div class="loader-content">
+            <span class="loader-logo">Stackly</span>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                var loader = document.getElementById("site-loader");
+                if (loader) {
+                    loader.classList.add("is-hidden");
+                    setTimeout(function() { loader.remove(); }, 500);
+                }
+            }, 1500);
+        });
+    </script>
 
     
 
@@ -328,7 +345,7 @@
                     <a class="connect__card" href="../404.html" data-anim="up" data-delay="0.08">
                         <span class="connect__icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
                         <span class="connect__label">Phone</span>
-                        <h3>+91 00000 00000</h3>
+                        <h3>+91 98765 43210</h3>
                         <p>Weekdays, 10am–6pm IST. Leave a message if we miss it.</p>
                         <span class="connect__cta">Call us <i class="fa-solid fa-arrow-right"
                                 aria-hidden="true"></i></span>
@@ -422,7 +439,7 @@
                                 <span class="base__ico"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
                                 <div>
                                     <strong>Phone</strong>
-                                    <p>+91 00000 00000</p>
+                                    <p>+91 98765 43210</p>
                                 </div>
                             </li>
 
@@ -735,7 +752,7 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html">Login</a></li>
+                        
                     </ul>
                 </div>
 
@@ -766,7 +783,7 @@
                     <ul class="footer-contact">
                         <li>
                             <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                            <span>+91 00000 00000</span>
+                            <span>+91 98765 43210</span>
                         </li>
                         <li>
                             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>

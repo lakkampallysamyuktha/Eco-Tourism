@@ -35,7 +35,7 @@
     </div>
 
     <div class="auth__visual-brand">
-      <span>Stackly</span>
+     
       <small>Eco Tourism · Responsible Travel</small>
     </div>
   </aside>
@@ -376,7 +376,26 @@
     } catch (err) { /* ignore storage errors */ }
 
     var target = roleInput.value === "admin" ? "admin.html" : "user.html";
-    window.location.href = target;
+    
+    var btn = form.querySelector(".auth__submit");
+    if (btn) {
+      btn.disabled = true;
+      btn.innerHTML = 'Signing in... <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>';
+    }
+
+    var msg = document.createElement("div");
+    msg.style.cssText = "position:fixed;top:20px;right:20px;background:var(--green);color:#fff;padding:16px 24px;border-radius:4px;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,0.1);z-index:10000;opacity:0;transform:translateY(-20px);transition:all 0.4s ease;";
+    msg.textContent = "Login successful! Redirecting...";
+    document.body.appendChild(msg);
+
+    requestAnimationFrame(function() {
+      msg.style.opacity = "1";
+      msg.style.transform = "translateY(0)";
+    });
+
+    setTimeout(function() {
+      window.location.href = target;
+    }, 1500);
   });
 
   /* =========================================================

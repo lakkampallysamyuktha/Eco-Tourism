@@ -86,7 +86,9 @@ body {
 }
 
 body.is-locked {
-    overflow: hidden;
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none;
 }
 
 h1,
@@ -678,12 +680,14 @@ p {
     font-size: 0.92rem;
 }
 
-.footer-contact svg {
-    width: 17px;
-    height: 17px;
+.footer-contact svg,
+.footer-contact i {
+    width: 24px;
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 2px;
     color: var(--sage);
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 .footer-bottom {
@@ -717,6 +721,38 @@ select:-webkit-autofill {
 
 [data-anim] {
     will-change: transform, opacity;
+}
+
+/* ============================================================
+   LOADER
+   ============================================================ */
+.site-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--deep);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s var(--ease-out), visibility 0.5s var(--ease-out);
+}
+
+.site-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 /* ============================================================

@@ -21,6 +21,23 @@
 </head>
 
 <body>
+    <!-- ================= LOADER ================= -->
+    <div id="site-loader" class="site-loader">
+        <div class="loader-content">
+            <span class="loader-logo">Stackly</span>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                var loader = document.getElementById("site-loader");
+                if (loader) {
+                    loader.classList.add("is-hidden");
+                    setTimeout(function() { loader.remove(); }, 500);
+                }
+            }, 1500);
+        });
+    </script>
 
 
     <!-- ================= HEADER ================= -->
@@ -162,7 +179,7 @@
                         </figure>
 
                         <figure class="protect__fig" data-anim="up" data-delay="0.08">
-                            <img src="assets/images/img_003.webp"
+                            <img src="assets/images/img_004.webp"
                                 alt="A narrow walking trail winding between tall forest trees" loading="lazy"
                                 decoding="async">
                         </figure>
@@ -746,7 +763,7 @@
                         <li><a href="html/services.html">Services</a></li>
                         <li><a href="html/blog.html">Blog</a></li>
                         <li><a href="html/contact.html">Contact</a></li>
-                        <li><a href="html/login.html">Login</a></li>
+                       
                     </ul>
                 </div>
 
@@ -777,7 +794,7 @@
                     <ul class="footer-contact">
                         <li>
                             <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                            <span>+91 00000 00000</span>
+                            <span>+91 98765 43210</span>
                         </li>
                         <li>
                             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
