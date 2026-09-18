@@ -639,3 +639,32 @@ body.auth-page {
         transform: none !important;
     }
 }
+
+/* ============================================================
+   CHECKBOX
+   ============================================================ */
+.field--check {
+    margin-top: -6px;
+    margin-bottom: 2px;
+}
+.check-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    transition: color .3s var(--ease-out);
+}
+.check-label:hover {
+    color: var(--ink);
+}
+.check-input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--green);
+    cursor: pointer;
+}
+.check-text {
+    user-select: none;
+}
