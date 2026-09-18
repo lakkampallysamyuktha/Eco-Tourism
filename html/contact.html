@@ -210,19 +210,20 @@
 
                         <div class="form-row">
                             <div class="form-field">
-                                <label for="groupSize">Group size</label>
-                                <select id="groupSize" name="groupSize">
+                                <label for="groupSize">Group size <span class="tell__req">*</span></label>
+                                <select id="groupSize" name="groupSize" required>
                                     <option value="">Select</option>
                                     <option value="solo">Solo</option>
                                     <option value="pair">Two people</option>
                                     <option value="small">3–5 people</option>
                                     <option value="medium">6–12 people</option>
                                 </select>
+                                <span class="form-error" id="errGroup" role="alert"></span>
                             </div>
 
                             <div class="form-field">
-                                <label for="travelWindow">Preferred season</label>
-                                <select id="travelWindow" name="travelWindow">
+                                <label for="travelWindow">Preferred season <span class="tell__req">*</span></label>
+                                <select id="travelWindow" name="travelWindow" required>
                                     <option value="">Select</option>
                                     <option value="monsoon">Monsoon (Jun–Aug)</option>
                                     <option value="post">Post-monsoon (Sep–Nov)</option>
@@ -230,6 +231,7 @@
                                     <option value="summer">Summer (Mar–May)</option>
                                     <option value="flex">Flexible</option>
                                 </select>
+                                <span class="form-error" id="errSeason" role="alert"></span>
                             </div>
                         </div>
 
@@ -942,12 +944,16 @@
                 var phoneInput = document.getElementById("phone");
                 var destInput = document.getElementById("destination");
                 var msgInput = document.getElementById("message");
+                var groupInput = document.getElementById("groupSize");
+                var seasonInput = document.getElementById("travelWindow");
 
                 var errName = document.getElementById("errName");
                 var errEmail = document.getElementById("errEmail");
                 var errPhone = document.getElementById("errPhone");
                 var errDestination = document.getElementById("errDestination");
                 var errMessage = document.getElementById("errMessage");
+                var errGroup = document.getElementById("errGroup");
+                var errSeason = document.getElementById("errSeason");
 
                 var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 var phoneRe = /^[+\d\s()-]{7,}$/;
@@ -961,14 +967,16 @@
                     input.classList.remove("is-invalid");
                 }
 
-                [nameInput, emailInput, phoneInput, destInput, msgInput].forEach(function (input) {
+                [nameInput, emailInput, phoneInput, destInput, msgInput, groupInput, seasonInput].forEach(function (input) {
                     input.addEventListener("input", function () {
                         var map = {
                             fullName: errName,
                             email: errEmail,
                             phone: errPhone,
                             destination: errDestination,
-                            message: errMessage
+                            message: errMessage,
+                            groupSize: errGroup,
+                            travelWindow: errSeason
                         };
                         clearError(input, map[input.id]);
                     });
@@ -1003,6 +1011,16 @@
                         showError(destInput, errDestination, "A rough idea is enough — even just a region.");
                         valid = false;
                     } else { clearError(destInput, errDestination); }
+
+                    if (!groupInput.value) {
+                        showError(groupInput, errGroup, "Please select a group size.");
+                        valid = false;
+                    } else { clearError(groupInput, errGroup); }
+
+                    if (!seasonInput.value) {
+                        showError(seasonInput, errSeason, "Please select a preferred season.");
+                        valid = false;
+                    } else { clearError(seasonInput, errSeason); }
 
                     if (!msgInput.value.trim()) {
                         showError(msgInput, errMessage, "Please tell us a little about your trip.");
