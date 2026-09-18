@@ -195,7 +195,7 @@
                         <div class="form-row">
                             <div class="form-field">
                                 <label for="phone">Phone <span class="tell__req">*</span></label>
-                                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+91 98765 43210" required>
                                 <span class="form-error" id="errPhone" role="alert"></span>
                             </div>
 
@@ -956,7 +956,7 @@
                 var errSeason = document.getElementById("errSeason");
 
                 var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                var phoneRe = /^[+\d\s()-]{7,}$/;
+                var phoneRe = /^\+?[\d\s\-()]{10,20}$/;
 
                 function showError(input, span, msg) {
                     span.textContent = msg;

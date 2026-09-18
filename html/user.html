@@ -2547,7 +2547,7 @@
       /* =========================================================
          HASH ROUTING & SCROLL RESTORATION
          ========================================================= */
-      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      if ("scrollRestoration" in history) history.scrollRestoration = "auto";
       
       var initialHash = window.location.hash.replace("#", "");
       if (initialHash && document.getElementById("panel-" + initialHash)) {
