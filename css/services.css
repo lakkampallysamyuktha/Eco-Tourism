@@ -150,12 +150,12 @@
 
 .sv-row__media {
   overflow: hidden;
-  aspect-ratio: 4 / 5;
   background: var(--deep);
 }
 .sv-row__media img {
-  width: 100%; height: 100%;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
   transition: transform 1.3s var(--ease-out);
 }
 .sv-row__media:hover img { transform: scale(1.04); }
@@ -638,7 +638,7 @@
   .sv-row { grid-template-columns: 1fr; gap: 40px; }
   .sv-row--reverse .sv-row__media,
   .sv-row--reverse .sv-row__copy { order: initial; }
-  .sv-row__media { aspect-ratio: 16 / 10; }
+  .sv-row--reverse .sv-row__copy { order: initial; }
 
   .treks { grid-template-columns: repeat(2, 1fr); gap: 40px 34px; }
   .trek p { max-width: none; }
@@ -672,7 +672,7 @@
 
   .ways__index { padding: 28px 24px; }
 
-  .sv-row__media { aspect-ratio: 4 / 3; }
+  .ways__index { padding: 28px 24px; }
 
   .treks { grid-template-columns: 1fr; gap: 32px; padding-top: 34px; }
 
